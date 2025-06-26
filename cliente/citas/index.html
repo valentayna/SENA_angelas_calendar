@@ -12,13 +12,13 @@
     <section class="menu">
         <div class="navigation">
             <ul>
-                <li class="list active">
+                <li class="list">
                     <a href="/cliente/principal/index.html">
                         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class="text">Inicio</span>
                     </a>
                 </li>
-                <li class="list">
+                <li class="list active">
                     <a href="/cliente/citas/index.html">
                         <span class="icon"><ion-icon name="newspaper-outline"></ion-icon></span>
                         <span class="text">Citas</span>
@@ -42,23 +42,19 @@
     </section>
 
     <section class="container">
-        <div class="slider-wrapper">
-            <div class="slider">
-                <img id="img1" src="images/img1.jpg" alt="imagen del establecimiento 1" />
-                <img id="img2" src="images/img2.jpg" alt="imagen del establecimiento 2" />
-                <img id="img3" src="images/img3.jpg" alt="imagen de corte de cabello 3" />
-                <img id="img4" src="images/img4.jpg" alt="imagen de una manicura 4" />
-                <img id="img5" src="images/img5.jpg" alt="imagen de un maquillaje 5" />
-            </div>
-
-            <div class="slider-nav">
-                <a href="#img1"></a>
-                <a href="#img2"></a>
-                <a href="#img3"></a>
-                <a href="#img4"></a>
-                <a href="#img5"></a>
-            </div>
-            <div class="agendar">agenda tu <a href="#">cita</a></div>
+        <h2>Tus citas agendadas</h2>
+        <div class="citas_agendadas">
+            <h1>Cita 2025-02-12 08:00:00</h1>
+            <ul class="menu-cita">
+                <li>
+                    <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+                    <ul>
+                        <li><a href="#">Mirar</a></li>
+                        <li><a href="#">Modificar</a></li>
+                        <li><a href="#">Eliminar</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </section>
 
@@ -66,7 +62,6 @@
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
 </body>
 
 </html>
