@@ -2,8 +2,8 @@ import java.sql.*;
 
 public class conexion {
 
-    static String url = "jdbc:mysql://localhost:3306/angelas_calendar";
-    static String user = "root";
+    static String url = "jdbc:mysql://cinema-server.mysql.database.azure.com:3306/angelas_calendar";
+    static String user = "main";
     static String password = "Va862082";
 
     public Connection conectar(){

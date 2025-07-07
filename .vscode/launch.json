@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "SENA_angelas_calendar_fa0c3cc0"
+        },
+        {
+            "type": "java",
+            "name": "TestCRUDcitas",
+            "request": "launch",
+            "mainClass": "TestCRUDcitas",
+            "projectName": "SENA_angelas_calendar_fa0c3cc0"
+        },
+        {
+            "type": "java",
+            "name": "TestCRUDservicios_select",
+            "request": "launch",
+            "mainClass": "TestCRUDservicios_select",
+            "projectName": "SENA_angelas_calendar_fa0c3cc0"
+        },
+        {
+            "type": "java",
+            "name": "TestCRUDservicios",
+            "request": "launch",
+            "mainClass": "TestCRUDservicios",
+            "projectName": "SENA_angelas_calendar_fa0c3cc0"
+        },
+        {
+            "type": "java",
+            "name": "Ejecutar TestCRUDusuarios",
+            "request": "launch",
+            "mainClass": "TestCRUDusuarios",
+            "projectName": "SENA_angelas_calendar_fa0c3cc0"
+        }
+    ]
+}
