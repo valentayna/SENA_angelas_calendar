@@ -5,6 +5,7 @@ id_usuario int PK AI
 correo varchar(200) 
 nombre varchar(50) 
 contraseña varchar(50)
+rol varchar(50)
  */
 
 import java.sql.*;
@@ -14,8 +15,8 @@ public class CRUDusuarios {
     conexion conexion = new conexion();
 
     // CREATE
-    public void create(String correo, String nombre, String contraseña) {
-        String sql = "INSERT INTO usuarios (correo, nombre, contraseña) VALUES (?, ?, ?)";
+    public void create(String correo, String nombre, String contraseña, String rol) {
+        String sql = "INSERT INTO usuarios (correo, nombre, contraseña, rol) VALUES (?, ?, ?, ?)";
 
         try (Connection con = conexion.conectar();
              PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -23,6 +24,7 @@ public class CRUDusuarios {
             stmt.setString(1, correo);
             stmt.setString(2, nombre);
             stmt.setString(3, contraseña);
+            stmt.setString(4, rol);
             stmt.executeUpdate();
 
             System.out.println("Usuario creado exitosamente.");
@@ -45,6 +47,7 @@ public class CRUDusuarios {
                 System.out.println("correo: " + rs.getString("correo"));
                 System.out.println("nombre: " + rs.getString("nombre"));
                 System.out.println("contraseña: " + rs.getString("contraseña"));
+                System.out.println("Rol: " + rs.getString("rol"));
                 System.out.println("-------------");
             }
 
