@@ -2,7 +2,7 @@
 Table: servicios_select
 Columns:
 id_servicios_select int AI PK 
-id_cliente int 
+correo varchar(200) 
 id_servicio varchar(50) 
 id_cita int
 */
@@ -14,13 +14,13 @@ public class CRUDservicios_select {
     conexion conexion = new conexion();
 
     // CREATE
-    public void create(int id_cliente, String id_servicio, int id_cita) {
-        String sql = "INSERT INTO servicios_select (id_cliente, id_servicio, id_cita) VALUES (?, ?, ?)";
+    public void create(String correo, String id_servicio, int id_cita) {
+        String sql = "INSERT INTO servicios_select (correo, id_servicio, id_cita) VALUES (?, ?, ?)";
 
         try (Connection con = conexion.conectar();
              PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setInt(1, id_cliente);
+            stmt.setString(1, correo);
             stmt.setString(2, id_servicio);
             stmt.setInt(3, id_cita);
             stmt.executeUpdate();
@@ -42,7 +42,7 @@ public class CRUDservicios_select {
 
             while (rs.next()) {
                 System.out.println("id_servicios_select: " + rs.getInt("id_servicios_select"));
-                System.out.println("id_cliente: " + rs.getInt("id_cliente"));
+                System.out.println("Correo: " + rs.getString("correo"));
                 System.out.println("id_servicio: " + rs.getString("id_servicio"));
                 System.out.println("id_cita: " + rs.getInt("id_cita"));
                 System.out.println("-------------");

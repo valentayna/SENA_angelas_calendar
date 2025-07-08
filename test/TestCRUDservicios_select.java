@@ -20,14 +20,14 @@ public class TestCRUDservicios_select {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("ID del cliente: ");
-                    int idCliente = scanner.nextInt();
+                    System.out.print("Correo del cliente: ");
+                    String correo = scanner.nextLine();
                     scanner.nextLine();
                     System.out.print("ID del servicio: ");
                     String idServicio = scanner.nextLine();
                     System.out.print("ID de la cita: ");
                     int idCita = scanner.nextInt();
-                    crud.create(idCliente, idServicio, idCita);
+                    crud.create(correo, idServicio, idCita);
                     break;
 
                 case 2:

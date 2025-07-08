@@ -27,7 +27,7 @@ public class TestCRUDusuarios {
                     String nombre = scanner.nextLine();
                     System.out.print("Contraseña: ");
                     String contrasena = scanner.nextLine();
-                    crud.create(correo, nombre, contrasena);
+                    crud.create(correo, nombre, contrasena, "cliente");
                     break;
 
                 case 2:
@@ -35,8 +35,8 @@ public class TestCRUDusuarios {
                     break;
 
                 case 3:
-                    System.out.print("ID del usuario a actualizar: ");
-                    int idUpdate = scanner.nextInt();
+                    System.out.print("correo del usuario a actualizar: ");
+                    String idUpdate = scanner.nextLine();
                     scanner.nextLine();
                     System.out.print("Nuevo correo: ");
                     String nuevoCorreo = scanner.nextLine();
@@ -48,10 +48,10 @@ public class TestCRUDusuarios {
                     break;
 
                 case 4:
-                    System.out.print("ID del usuario a eliminar: ");
-                    int idDelete = scanner.nextInt();
+                    System.out.print("Correo del usuario a eliminar: ");
+                    String CorreoDelete = scanner.nextLine();
                     scanner.nextLine();
-                    crud.delete(idDelete);
+                    crud.delete(CorreoDelete);
                     break;
 
                 case 0:

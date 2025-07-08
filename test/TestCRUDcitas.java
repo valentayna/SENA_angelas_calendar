@@ -22,8 +22,8 @@ public class TestCRUDcitas {
 
             switch (opcion) {
                 case 1:
-                    System.out.print("ID del cliente: ");
-                    int idCliente = scanner.nextInt();
+                    System.out.print("Correo del cliente: ");
+                    String correo = scanner.nextLine();
                     scanner.nextLine();
                     System.out.print("Fecha (AAAA-MM-DD): ");
                     Date fecha = Date.valueOf(scanner.nextLine());
@@ -33,7 +33,7 @@ public class TestCRUDcitas {
                     Time horaFin = Time.valueOf(scanner.nextLine());
                     System.out.print("Precio total: ");
                     int precio = scanner.nextInt();
-                    crud.create(idCliente, fecha, horaInicio, horaFin, precio);
+                    crud.create(correo, fecha, horaInicio, horaFin, precio);
                     break;
 
                 case 2:

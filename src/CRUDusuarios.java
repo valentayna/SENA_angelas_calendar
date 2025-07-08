@@ -1,8 +1,7 @@
 /*
 Table: usuarios
 Columns:
-id_usuario int PK AI
-correo varchar(200) 
+correo varchar(200) pk
 nombre varchar(50) 
 contraseña varchar(50)
 rol varchar(50)
@@ -43,7 +42,6 @@ public class CRUDusuarios {
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                System.out.println("id_usuario: " + rs.getInt("id_usuario"));
                 System.out.println("correo: " + rs.getString("correo"));
                 System.out.println("nombre: " + rs.getString("nombre"));
                 System.out.println("contraseña: " + rs.getString("contraseña"));
@@ -59,8 +57,8 @@ public class CRUDusuarios {
     }
 
     // UPDATE
-    public void update(int id_usuario, String correo, String nombre, String contraseña) {
-        String sql = "UPDATE usuarios SET correo = ?, nombre = ?, contraseña = ? WHERE id_usuario = ?";
+    public void update(String correo_actual, String correo, String nombre, String contraseña) {
+        String sql = "UPDATE usuarios SET correo = ?, nombre = ?, contraseña = ? WHERE correo_actual = ?";
 
         try (Connection con = conexion.conectar();
              PreparedStatement stmt = con.prepareStatement(sql)) {
@@ -68,7 +66,7 @@ public class CRUDusuarios {
             stmt.setString(1, correo);
             stmt.setString(2, nombre);
             stmt.setString(3, contraseña);
-            stmt.setInt(4, id_usuario);
+            stmt.setString(4, correo_actual);
             stmt.executeUpdate();
 
             System.out.println("Usuario actualizado.");
@@ -79,13 +77,13 @@ public class CRUDusuarios {
     }
 
     // DELETE
-    public void delete(int id_usuario) {
-        String sql = "DELETE FROM usuarios WHERE id_usuario = ?";
+    public void delete(String correo) {
+        String sql = "DELETE FROM usuarios WHERE correo = ?";
 
         try (Connection con = conexion.conectar();
              PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setInt(1, id_usuario);
+            stmt.setString(1, correo);
             stmt.executeUpdate();
 
             System.out.println("Usuario eliminado.");

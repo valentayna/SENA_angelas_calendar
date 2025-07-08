@@ -2,7 +2,7 @@
 Table: citas
 Columns:
 id_cita int AI PK 
-id_cliente int 
+correo varchar(50) 
 fecha date 
 hora_inicio time 
 hora_fin time 
@@ -17,13 +17,13 @@ public class CRUDcitas {
     conexion conexion = new conexion();
     
     //CREATE
-    public void create (int id_cliente, Date fecha, Time hora_inicio, Time hora_fin, int precio_total){
-        String sql = "INSERT INTO citas (id_cliente, fecha, hora_inicio, hora_fin, precio_total) VALUES (?, ?, ?, ?, ?)";
+    public void create (String correo, Date fecha, Time hora_inicio, Time hora_fin, int precio_total){
+        String sql = "INSERT INTO citas (correo, fecha, hora_inicio, hora_fin, precio_total) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection con = conexion.conectar();
          PreparedStatement stmt = con.prepareStatement(sql)){
 
-            stmt.setInt(1, id_cliente);
+            stmt.setString(1, correo);
             stmt.setDate(2, fecha);
             stmt.setTime(3, hora_inicio);
             stmt.setTime(4, hora_fin);
@@ -45,7 +45,7 @@ public class CRUDcitas {
 
                 while (rs.next()) {
                     System.out.println("id_cita:" + rs.getInt("id_cita"));
-                    System.out.println("id_cliente:" + rs.getInt("id_cliente"));
+                    System.out.println("correo:" + rs.getString("correo"));
                     System.out.println("fecha:" + rs.getDate("fecha"));
                     System.out.println("hora_inicio:" + rs.getTime("hora_inicio"));
                     System.out.println("hora_fin:" + rs.getTime("hora_fin"));
