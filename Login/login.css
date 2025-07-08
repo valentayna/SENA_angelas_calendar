@@ -95,6 +95,15 @@ form label {
   font-family: inherit;
 }
 
+form a {
+  margin: 0 0 6px;
+  display: block;
+  font-size: 1.25em;
+  color: teal;
+  font-weight: 700;
+  font-family: inherit;
+}
+
 form input[type=email],
 form input[type=text],
 form input[type=number],
