@@ -7,13 +7,14 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
 	<link rel="icon" type="image/x-icon" href="assets/images/fav.webp">
-	<link rel="stylesheet" href="login.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
 </head>
 
 <body>
 	<!-- partial:index.partial.html -->
 	<br><br><br><br><br><br><br><br><br><br>
-	<form action="" method="post">
+	<form method="post">
+
 		<div class="svgContainer">
 			<div>
 				<svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -217,33 +218,66 @@
 		</div>
 		<form>
 			<div class="inputGroup inputGroup1">
-				<label for="loginEmail" id="loginEmailLabel">Correo</label>
-				<input type="email" name="email" id="loginEmail">
+				<label for="RegisterEmail" id="RegisterEmailLabel">Correo</label>
+				<input type="email" name="correo" id="registerEmail" required>
 			</div>
+
 			<div class="inputGroup inputGroup2">
-				<label for="loginPassword" id="loginPasswordLabel">Contraseña</label>
-				<input type="password" name="pass" id="loginPassword">
+				<label for="username" id="RegisterNameLabel">Nombre De Usuario</label>
+				<input type="text" name="nombre" id="registerName" required>
+			</div>
+
+			<div class="inputGroup inputGroup3">
+				<label for="RegisterPassword" id="RegisterPasswordLabel">Contraseña</label>
+				<input type="password" name="contraseña" id="RegisterPassword" required>
 				<label id="showPasswordToggle" for="showPasswordCheck">Mostrar
 					<input id="showPasswordCheck" type="checkbox" />
 					<div class="indicator"></div>
 				</label>
 			</div>
-			<div class="inputGroup inputGroup3">
-				<button id="login" value="login now" name="submit" class="btn">Iniciar sesión</button>
+
+			<div class="inputGroup inputGroup5">
+				<button id="register" value="register now" name="submit" class="btn">Registrarse</button>
 			</div>
-			<div class="forgot-pasword">
-				<a href="#">¿Olvidó su Contraseña?</a>
+			<div class="register">
+				<a href="#">¿Ya tienes una cuenta?</a>
 			</div>
 
 		</form>
 
+	</form>
 
+	<!-- partial -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
+	<script src='NextgenmediaSVGPlugin.min_2.js'></script>
+	<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-		<!-- partial -->
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
-		<script src='NextgenmediaSVGPlugin.min_2.js'></script>
-		<script src="script.js"></script>
 
 </body>
+{% if "Registro exitoso" in mensaje %}
+<script>
+	Swal.fire({
+		title: '¡Éxito!',
+		text: '{{ mensaje }}',
+		icon: 'success',
+		timer: 2000,
+		showConfirmButton: false
+	}).then(() => {
+		window.location.href = "{{ url_for('login') }}";
+	});
+</script>
+{% else %}
+<script>
+	Swal.fire({
+		title: 'Error',
+		text: '{{ mensaje }}',
+		icon: 'error',
+		confirmButtonText: 'Intentar de nuevo'
+	});
+</script>
+{% endif %}
+
+
 
 </html>

@@ -104,18 +104,23 @@ form a {
   font-family: inherit;
 }
 
+form a:hover {
+  color: #f5bc00;
+}
+
 form input[type=email],
 form input[type=text],
 form input[type=number],
 form input[type=url],
 form input[type=search],
-form input[type=password] {
+form input[type=password],
+form input[type=text] {
   display: block;
   margin: 0;
   padding: 0 1em 0;
   padding: 0em 1em 0;
   background-color: #f3fbfd;
-  border: solid 2px TEAL;
+  border: solid 2px teal;
   border-radius: 10px;
   box-sizing: border-box;
   width: 100%;
@@ -132,7 +137,8 @@ form input[type=text]:focus,
 form input[type=number]:focus,
 form input[type=url]:focus,
 form input[type=search]:focus,
-form input[type=password]:focus {
+form input[type=password]:focus,
+form input[type=text]:focus {
   outline: none;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   border: solid 2px teal;
@@ -158,7 +164,8 @@ form button {
 
 form button:hover,
 form button:active {
-  background-color: teal;
+  background-color: #f5bc00;
+  cursor: pointer;
 }
 
 form .inputGroup1 .helper {
@@ -185,15 +192,18 @@ form .inputGroup1.focusWithText .helper {
   opacity: 1;
 }
 
-form .inputGroup2 input[type=password] {
+form .inputGroup3 input[type=password],
+form .inputGroup4 input[type=password] {
   padding: 0.4em 1em 0.5em;
 }
 
-form .inputGroup2 input[type=text] {
+form .inputGroup3 input[type=text],
+form .inputGroup4 input[type=text] {
   padding: 0.025em 1em 0;
 }
 
-form .inputGroup2 #showPasswordToggle {
+form .inputGroup3 #showPasswordToggle,
+form .inputGroup4 #showPasswordToggle2 {
   display: block;
   padding: 0 0 0 1.45em;
   position: absolute;
@@ -202,13 +212,15 @@ form .inputGroup2 #showPasswordToggle {
   font-size: 1em;
 }
 
-form .inputGroup2 #showPasswordToggle input {
+form .inputGroup3 #showPasswordToggle input,
+form .inputGroup4 #showPasswordToggle2 input {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
 
-form .inputGroup2 #showPasswordToggle .indicator {
+form .inputGroup3 #showPasswordToggle .indicator,
+form .inputGroup4 #showPasswordToggle2 .indicator2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -219,7 +231,8 @@ form .inputGroup2 #showPasswordToggle .indicator {
   border-radius: 3px;
 }
 
-form .inputGroup2 #showPasswordToggle .indicator:after {
+form .inputGroup3 #showPasswordToggle .indicator:after,
+form .inputGroup4 #showPasswordToggle2 .indicator2:after {
   content: "";
   position: absolute;
   left: 0.25em;
@@ -232,19 +245,23 @@ form .inputGroup2 #showPasswordToggle .indicator:after {
   visibility: hidden;
 }
 
-form .inputGroup2 #showPasswordToggle input:checked~.indicator:after {
+form .inputGroup3 #showPasswordToggle input:checked~.indicator:after,
+form .inputGroup4 #showPasswordToggle2 input:checked~.indicator2:after {
   visibility: visible;
 }
 
-form .inputGroup2 #showPasswordToggle input:focus~.indicator,
-form .inputGroup2 #showPasswordToggle input:hover~.indicator {
+form .inputGroup3 #showPasswordToggle input:focus~.indicator,
+form .inputGroup4 #showPasswordToggle2 input:hover~.indicator2 {
   border-color: teal;
+  cursor: pointer;
 }
 
-form .inputGroup2 #showPasswordToggle input:disabled~.indicator {
+form .inputGroup3 #showPasswordToggle input:disabled~.indicator,
+form .inputGroup4 #showPasswordToggle2 input:disabled~.indicator2 {
   opacity: 0.5;
 }
 
-form .inputGroup2 #showPasswordToggle input:disabled~.indicator:after {
+form .inputGroup3 #showPasswordToggle input:disabled~.indicator:after,
+form .inputGroup4 #showPasswordToggle2 input:disabled~.indicator2:after {
   visibility: hidden;
 }
