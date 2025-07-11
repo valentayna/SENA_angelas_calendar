@@ -9,6 +9,17 @@
 
 ---
 
+## anatomía del proyecto
+* 📁__ pycache __ --> no poner cuidado a esta carpeta, es el cache de python
+* 📁static --> aquí estan los estilos y scripts para las paginas web
+    * 📁css --> aquí estan los estilos para las paginas web, cada archivo .css lleva el nombre de la pagina a la que da estilo
+    * 📁js --> aquí estan los script para las paginas web, cada archivo .js lleva el nombre de la pagina a la que da interactividad
+* 📁templates --> aquí estan cada uno de los archivos .html que necesita la pagina web
+* 🐍app.py --> aquí está el backend, se crea una aplicación web con flask sirviendo de intermediario entre el navegador, el html y la base de datos, tomando decisiones según la logica del programa
+* 📄BaltimoreCyberTrustRoot.crt.pem --> un certificado que tocó descargar para poder conectarse a la base de datos desde la web y se utiliza en la conexión
+* 🐍conexion.py --> aquí está la conexión al a base de datos
+---
+
 ## ejecutar la pagina web
 1. asegurese de tener todas las librerias especificadas en *requirements* instaladas.
 2. dirijase al archivo *app.py*
