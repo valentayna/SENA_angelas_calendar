@@ -265,3 +265,13 @@ form .inputGroup3 #showPasswordToggle input:disabled~.indicator:after,
 form .inputGroup4 #showPasswordToggle2 input:disabled~.indicator2:after {
   visibility: hidden;
 }
+
+
+.popup-boton {
+  background-color: teal !important;
+  color: white !important;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-weight: 400;
+}

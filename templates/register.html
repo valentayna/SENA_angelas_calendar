@@ -3,11 +3,11 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title> inicio sesion ANGELAS'CALENDAR</title>
+	<title> inicio sesion ANGELAS"CALENDAR</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
 	<link rel="icon" type="image/x-icon" href="assets/images/fav.webp">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+	<link rel="stylesheet" href="{{ url_for("static", filename="css/register.css") }}">
 </head>
 
 <body>
@@ -248,9 +248,9 @@
 	</form>
 
 	<!-- partial -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
-	<script src='NextgenmediaSVGPlugin.min_2.js'></script>
-	<script src="{{ url_for('static', filename='js/register.js') }}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+	<script src="NextgenmediaSVGPlugin.min_2.js"></script>
+	<script src="{{ url_for("static", filename="js/register.js") }}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
@@ -258,9 +258,9 @@
 {% if "Registro exitoso" in mensaje %}
 <script>
 	Swal.fire({
-		title: '¡Éxito!',
-		text: '{{ mensaje }}',
-		icon: 'success',
+		title: "¡Éxito!",
+		text: "{{ mensaje }}",
+		icon: "success",
 		timer: 2000,
 		showConfirmButton: false
 	}).then(() => {
@@ -268,14 +268,20 @@
 	});
 </script>
 {% else %}
-<script>
-	Swal.fire({
-		title: 'Error',
-		text: '{{ mensaje }}',
-		icon: 'error',
-		confirmButtonText: 'Intentar de nuevo'
-	});
-</script>
+	{% if mensaje %}
+	<script>
+		Swal.fire({
+			title: "Error",
+			text: "{{ mensaje }}",
+			icon: "error",
+			confirmButtonText: "Intentar de nuevo",
+
+			customClass: {
+                confirmButton: "popup-boton"
+            }
+		});
+	</script>
+	{% endif %}
 {% endif %}
 
 
