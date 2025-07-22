@@ -1,0 +1,221 @@
+body {
+    background-color: white;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    height: 94vh;
+}
+
+.sidebar {
+    width: 180px;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: inherit;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: dimgray;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item ion-icon {
+    font-size: 20px;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.menu-item span {
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover {
+    color: gray;
+}
+
+.menu-item.active,
+.menu-item.active ion-icon,
+.menu-item.active span {
+    color: crimson;
+}
+
+.panel-principal {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 24px;
+    background-color: #dfe9e9;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.encabezado h1,
+.encabezado .notificacion {
+    margin: 0;
+    /* elimina márgenes por defecto */
+    padding: 0;
+    /* elimina relleno extra */
+    line-height: 1;
+    /* reduce espacio vertical */
+}
+
+
+
+.notificacion {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.notificacion p {
+    background-color: #f5bc00;
+    border-radius: 24px;
+    padding: 10px;
+}
+
+.notificacion ion-icon {
+    font-size: 30px;
+
+}
+
+.notificacion p,
+.notificacion ion-icon {
+    margin: 0;
+    /* elimina márgenes por defecto */
+    padding: 0;
+    /* elimina relleno extra */
+    line-height: 1;
+    /* reduce espacio vertical */
+}
+
+
+.imagenes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-grow: 0.1;
+    box-sizing: content-box;
+    overflow-y: auto;
+
+}
+
+.imagenes img {
+    width: 5%;
+    max-height: 300px;
+    height: 100%;
+    border-radius: 24px;
+    flex-grow: 1;
+    padding: 0px 5px;
+}
+
+.servicios {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: content-box;
+    border-radius: 24px;
+    background-color: #f9f9f9;
+}
+
+
+.panel-secundario {
+    min-width: 200px;
+    width: 20%;
+    background-color: teal;
+    border-radius: 24px;
+}
+
+.user-data {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.image-container {
+    background-color: white;
+    padding: 11px;
+    margin: 0;
+    border-radius: 0px 0px 24px 0px;
+    max-height: fit-content;
+    min-width: 40px;
+}
+
+.image-container img {
+    border-radius: 50%;
+}
+
+.user-text{
+    flex-grow: 1;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    margin: 0 10px 0 10px;
+}
+.user-data h2 {
+    margin: 0;
+    text-align: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-data p {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    opacity: .4;
+}
+
+
+/* calendariooooo */
+
+.calendar_header{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.calendar_button{
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+}

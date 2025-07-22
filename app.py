@@ -16,13 +16,15 @@ def login():
         try:
             conn = conexion.conectar()
             cursor = conn.cursor(dictionary=True)
-            cursor.execute("SELECT nombre, rol FROM usuarios WHERE correo = %s AND contraseña = %s", (correo, contraseña))
+            cursor.execute("SELECT correo, nombre, rol FROM usuarios WHERE correo = %s AND contraseña = %s", (correo, contraseña))
             resultado = cursor.fetchone()
 
             if resultado:
                 nombre = resultado["nombre"] # type: ignore
                 rol = resultado["rol"] # type: ignore
+                correo = resultado["correo"] # type: ignore
                 session['nombre'] = nombre
+                session['correo'] = correo
                 if rol == "cliente":
                     return redirect(url_for('homeCliente'))  # Redirige a la vista de inicio del cliente
                 elif rol == "administrador":
@@ -48,7 +50,8 @@ def login():
 @app.route('/homeCliente')
 def homeCliente():
     nombre = session.get('nombre', 'usuario')
-    return render_template('homeCliente.html', nombre=nombre)
+    correo = session.get('correo', 'usuario')
+    return render_template('homeCliente.html', nombre=nombre, correo=correo)
 
 @app.route('/homeAdmin')
 def homeAdmin():
