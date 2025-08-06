@@ -5,38 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenida</title>
-    <link rel="stylesheet" href="{{ url_for("static", filename="css/homeCliente.css" ) }}">
-    <link rel="stylesheet" href="/static/css/homeCliente.css">
+    <!-- Enlace a la hoja de estilos CSS para la página de inicio del cliente -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homeCliente.css') }}">
+    <!-- Enlace a la hoja de estilos de iconos Remix -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
 </head>
 
 <body>
     <div class="container">
-
-
+        <!-- Slidebar de navegación -->
         <div class="sidebar">
+            <!-- Elemento de menú para la página de inicio -->
             <div class="top-menu">
                 <div class="menu-item active">
                     <ion-icon name="home"></ion-icon>
                     <p>Inicio</p>
                 </div>
 
+                <!-- Elemento de menú para las citas -->
                 <div class="menu-item">
                     <ion-icon name="calendar-clear"></ion-icon>
                     <p>Citas</p>
                 </div>
 
+                <!-- Elemento de menú para notificaciones -->
                 <div class="menu-item">
                     <ion-icon name="notifications"></ion-icon>
                     <p>Notificaciones</p>
                 </div>
 
+                <!-- Elemento de menú para la información del usuario -->
                 <div class="menu-item">
                     <ion-icon name="person"></ion-icon>
                     <p>Usuario</p>
                 </div>
             </div>
 
+            <!-- Elemento de menú para cerrar sesión -->
             <div class="bottom-menu">
                 <div class="menu-item">
                     <ion-icon name="log-out"></ion-icon>
@@ -45,10 +51,13 @@
             </div>
         </div>
 
+        <!-- Panel principal de contenido -->
         <div class="panel-principal">
             <div class="encabezado">
+                <!-- Saludo al usuario -->
                 <h1>hola, {{ nombre }} </h1>
                 <div class="notificacion">
+                    <!-- Notificación reciente -->
                     <p> {{ ultima_notificacion }}</p>
                     <ion-icon name="notifications"></ion-icon>
                 </div>
@@ -56,6 +65,7 @@
             </div>
 
             <div class="imagenes">
+                <!-- Imágenes de bienvenida lobby del salon -->
                 <img src="/static/images/home1.png" alt="home1">
                 <img src="/static/images/home2.png" alt="home2">
                 <img src="/static/images/home3.png" alt="home3">
@@ -63,108 +73,146 @@
             </div>
 
             <div class="servicios">
+                <!-- Título del menú de servicios -->
                 <h2>Menu de servicios</h2>
             </div>
 
         </div>
 
+        <!-- Panel secundario que contiene información adicional del usuario y el calendario -->
         <div class="panel-secundario">
             <div class="container1">
+                <!-- Sección de datos del usuario -->
                 <div class="user-data">
                     <div class="image-container">
-
-
+                        <!-- Imagen del usuario, si está disponible -->
                         {% if userimage %}
                         <img src="{{ userimage }}" alt="imagen de usuario" width="40">
                         {% else %}
+                        <!-- Imagen por defecto si no hay imagen del usuario -->
                         <img src="{{ url_for('static', filename='images/usuario.png') }}" alt="imagen de usuario"
                             width="40">
                         {% endif %}
 
                     </div>
                     <div class="user-text">
+                        <!-- Nombre y correo del usuario -->
                         <h2> {{ nombre }} </h2>
                         <p> {{ correo }} </p>
                     </div>
                 </div>
 
+                <!-- Sección del calendario -->
                 <div class="calendario">
                     <section class="calendar">
                         <header class="calendar_header">
                             <div class="header_container">
-                                <button class="calendar_button calendar_button--previous"><i class="ri-arrow-left-s-line"></i></button>
+                                <!-- Botón para navegar al mes anterior -->
+                                <button class="calendar_button calendar_button--previous"><i
+                                        class="ri-arrow-left-s-line"></i></button>
+                                <!-- Título que muestra la fecha actual del calendario -->
                                 <h3 class="container_heading" id="calendar-date"></h3>
-                                <button class="calendar_button calendar_button--next"><i class="ri-arrow-right-s-line"></i></button>
+                                <!-- Botón para navegar al mes siguiente -->
+                                <button class="calendar_button calendar_button--next"><i
+                                        class="ri-arrow-right-s-line"></i></button>
                             </div>
                         </header>
 
                         <!-- dias de la semana -->
-                         <section class="calendar_weekdays">
-                            <div class="calendar_weekday"><h4>Lunes</h4><abbr>Lun</abbr></div>
-                            <div class="calendar_weekday"><h4>Martes</h4><abbr>Mar</abbr></div>
-                            <div class="calendar_weekday"><h4>Miércoles</h4><abbr>Mie</abbr></div>
-                            <div class="calendar_weekday"><h4>Jueves</h4><abbr>Jue</abbr></div>
-                            <div class="calendar_weekday"><h4>Viernes</h4><abbr>Vie</abbr></div>
-                            <div class="calendar_weekday"><h4>Sábado</h4><abbr>Sab</abbr></div>
-                            <div class="calendar_weekday"><h4>Domingo</h4><abbr>Dom</abbr></div>
+                        <section class="calendar_weekdays">
+                            <div class="calendar_weekday">
+                                <h4>Lunes</h4><abbr>Lun</abbr>
+                            </div>
+                            <div class="calendar_weekday">
+                                <h4>Martes</h4><abbr>Mar</abbr>
+                            </div>
+                            <div class="calendar_weekday">
+                                <h4>Miércoles</h4><abbr>Mie</abbr>
+                            </div>
+                            <div class="calendar_weekday">
+                                <h4>Jueves</h4><abbr>Jue</abbr>
+                            </div>
+                            <div class="calendar_weekday">
+                                <h4>Viernes</h4><abbr>Vie</abbr>
+                            </div>
+                            <div class="calendar_weekday">
+                                <h4>Sábado</h4><abbr>Sab</abbr>
+                            </div>
+                            <div class="calendar_weekday">
+                                <h4>Domingo</h4><abbr>Dom</abbr>
+                            </div>
                         </section>
 
-                        <!-- Días del mes -->
-                         <ol class="calendar_days">
-                            <li class="calendar_day" data-day="1"><div class="day_info"><h5>1</h5></div></li>
-                            <li class="calendar_day" data-day="2"><div class="day_info"><h5>2</h5></div></li>
-                            <li class="calendar_day" data-day="3"><div class="day_info"><h5>3</h5></div></li>
-                            <li class="calendar_day" data-day="4"><div class="day_info"><h5>4</h5></div></li>
-                            <li class="calendar_day" data-day="5"><div class="day_info"><h5>5</h5></div></li>
-                            <li class="calendar_day" data-day="6"><div class="day_info"><h5>6</h5></div></li>
-                            <li class="calendar_day" data-day="7"><div class="day_info"><h5>7</h5></div></li>
-                            <li class="calendar_day" data-day="8"><div class="day_info"><h5>8</h5></div></li>
-                            <li class="calendar_day" data-day="9"><div class="day_info"><h5>9</h5></div></li>
-                            <li class="calendar_day" data-day="10"><div class="day_info"><h5>10</h5></div></li>
-                            <li class="calendar_day" data-day="11"><div class="day_info"><h5>11</h5></div></li>
-                            <li class="calendar_day" data-day="12"><div class="day_info"><h5>12</h5></div></li>
-                            <li class="calendar_day" data-day="13"><div class="day_info"><h5>13</h5></div></li>
-                            <li class="calendar_day" data-day="14"><div class="day_info"><h5>14</h5></div></li>
-                            <li class="calendar_day" data-day="15"><div class="day_info"><h5>15</h5></div></li>
-                            <li class="calendar_day" data-day="16"><div class="day_info"><h5>16</h5></div></li>
-                            <li class="calendar_day" data-day="17"><div class="day_info"><h5>17</h5></div></li>
-                            <li class="calendar_day" data-day="18"><div class="day_info"><h5>18</h5></div></li>
-                            <li class="calendar_day" data-day="19"><div class="day_info"><h5>19</h5></div></li>
-                            <li class="calendar_day" data-day="20"><div class="day_info"><h5>20</h5></div></li>
-                            <li class="calendar_day" data-day="21"><div class="day_info"><h5>21</h5></div></li>
-                            <li class="calendar_day" data-day="22"><div class="day_info"><h5>22</h5></div></li>
-                            <li class="calendar_day" data-day="23"><div class="day_info"><h5>23</h5></div></li>
-                            <li class="calendar_day" data-day="24"><div class="day_info"><h5>24</h5></div></li>
-                            <li class="calendar_day" data-day="25"><div class="day_info"><h5>25</h5></div></li>
-                            <li class="calendar_day" data-day="26"><div class="day_info"><h5>26</h5></div></li>
-                            <li class="calendar_day" data-day="27"><div class="day_info"><h5>27</h5></div></li>
-                            <li class="calendar_day" data-day="28"><div class="day_info"><h5>28</h5></div></li>
-                            <li class="calendar_day" data-day="29"><div class="day_info"><h5>29</h5></div></li>
-                            <li class="calendar_day" data-day="30"><div class="day_info"><h5>30</h5></div></li>
-                            <li class="calendar_day" data-day="31"><div class="day_info"><h5>31</h5></div></li>
-                         </ol>
+                        <!-- Días del mes (se llenará dinámicamente) -->
+                        <ol class="calendar_days">
+                            <!-- Aquí se generarán los días del mes -->
+                        </ol>
                     </section>
                 </div>
 
+                <!-- Sección para mostrar la próxima cita -->
                 <div class="proxima-cita">
-                    <p>proxima cita</p>
-                    <h1> {{ dia }} </h1>
-                    <p> de {{ mes }}</p>
-                    <input type="button" name="mas" id="mas" value=">">
+                    <div class="contain1">
+                        <p>Próxima cita:</p>
+                        {% if dia and mes %}
+                        <div class="contain2">
+                            <!-- Muestra el día y mes de la próxima cita -->
+                            <h1>{{ dia }}</h1>
+                            <p>de {{ mes }}</p>
+                            {% else %}
+                            <!-- Mensaje si no hay citas próximas -->
+                            <h1>No hay</h1>
+                            <p>citas próximas</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="contain3">
+                        <!-- Botón para ver más detalles sobre la próxima cita -->
+                        <button><i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+
+
+
+
                 </div>
+
             </div>
 
             <div class="container2">
+                <!-- Botón para agendar una nueva cita -->
                 <input type="button" name="agendar" id="agendar" value="agendar">
             </div>
 
         </div>
     </div>
 
+    <!-- Modal para mostrar detalles de la cita -->
+    <div id="modal-cita" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar">&times;</span> <!-- Botón para cerrar el modal -->
+            <h2>Detalle de la Cita</h2>
+            <p><strong>Fecha:</strong> <span id="detalle-fecha"></span></p>
+            <p><strong>Hora:</strong> <span id="detalle-hora"></span></p>
+            <p><strong>Precio:</strong> $<span id="detalle-precio"></span></p>
+        </div>
+    </div>
+
 </body>
 
 <!-- scripts -->
+<!-- Scripts para manejar la lógica de la página -->
+<script>
+    const citas = {{ citas | tojson }};
+    const fechasCitas = citas.map(c => c.fecha);
+    console.log("Fechas de citas:", fechasCitas);
+</script>
+
+<!-- Importar Ionicons para los iconos -->
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+<!-- Importar el script de la lógica de la página -->
+<script src="{{ url_for('static', filename='js/homeCliente.js' ) }}"></script>
+
 
 
 </html>

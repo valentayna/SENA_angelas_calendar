@@ -3,20 +3,24 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title> inicio sesion ANGELAS"CALENDAR</title>
+	<title> inicio sesion ANGELAS CALENDAR</title>
+	<!-- Enlace a la hoja de estilos CSS de reset para normalizar estilos -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
+	<!-- Icono de la pestaña -->
 	<link rel="icon" type="image/x-icon" href="assets/images/fav.webp">
+	<!-- Enlace a la hoja de estilos CSS personalizada para la página de inicio de sesión -->
 	<link rel="stylesheet" href="{{ url_for("static", filename="css/login.css") }}">
 </head>
 
 <body>
-	<!-- partial:index.partial.html -->
+	<!-- Espaciado superior para centrar el formulario en la página -->
 	<br><br><br><br><br><br><br><br><br><br>
+	<!-- Formulario de inicio de sesión -->
 	<form method="post">
-
 		<div class="svgContainer">
 			<div>
+				<!-- SVG que representa el personaje de inicio de sesion -->
 				<svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 					viewBox="0 0 200 200">
 					<defs>
@@ -217,10 +221,12 @@
 			</div>
 		</div>
 		<form>
+			<!-- Grupo de entrada para el correo electrónico -->
 			<div class="inputGroup inputGroup1">
 				<label for="loginEmail" id="loginEmailLabel">Correo</label>
 				<input type="email" name="correo" id="loginEmail" required>
 			</div>
+			<!-- Grupo de entrada para la contraseña -->
 			<div class="inputGroup inputGroup2">
 				<label for="loginPassword" id="loginPasswordLabel">Contraseña</label>
 				<input type="password" name="contraseña" id="loginPassword" required>
@@ -229,19 +235,22 @@
 					<div class="indicator"></div>
 				</label>
 			</div>
+			<!-- Botón para iniciar sesión -->
 			<div class="inputGroup inputGroup3">
 				<button id="login" value="login now" name="submit" class="btn">Iniciar sesión</button>
 			</div>
+			<!-- Enlace para redirigir a la página de registro -->
 			<div class="register">
 				<a href="{{ url_for("register") }}">¿No tienes una cuenta?</a>
 			</div>
 
-		</form>
+		</form> <!-- Cierre del formulario principal -->
 
 	</form>
 
 
 	<!-- partial -->
+	 <!-- Scripts para animaciones y funcionalidades -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 	<script src="NextgenmediaSVGPlugin.min_2.js"></script>
 	<script src="{{ url_for("static", filename="js/login.js") }}"></script>
@@ -249,7 +258,7 @@
 
 
 </body>
-
+<!-- Script para mostrar mensajes de error o advertencia -->
 {% if "Correo o contraseña incorrectos." in mensaje %}
 <script>
     Swal.fire({

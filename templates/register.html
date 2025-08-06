@@ -3,20 +3,24 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title> inicio sesion ANGELAS"CALENDAR</title>
+	<title> registro ANGELAS CALENDAR</title>
+	<!-- Enlace a la hoja de estilos CSS de reset para normalizar estilos -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
+	<!-- Icono de la pestaña -->
 	<link rel="icon" type="image/x-icon" href="assets/images/fav.webp">
-	<link rel="stylesheet" href="{{ url_for("static", filename="css/register.css") }}">
+	<!-- Enlace a la hoja de estilos CSS personalizada para la página de registro -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css' ) }}">
 </head>
 
 <body>
-	<!-- partial:index.partial.html -->
+	<!-- Espaciado superior para centrar el formulario en la página -->
 	<br><br><br><br><br><br><br><br><br><br>
+	<!-- Formulario de registro -->
 	<form method="post">
 
 		<div class="svgContainer">
 			<div>
+				<!-- SVG que representa el personaje de registro -->
 				<svg class="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 					viewBox="0 0 200 200">
 					<defs>
@@ -217,30 +221,37 @@
 			</div>
 		</div>
 		<form>
+			<!-- Grupo de entrada para el correo electrónico -->
 			<div class="inputGroup inputGroup1">
 				<label for="RegisterEmail" id="RegisterEmailLabel">Correo</label>
 				<input type="email" name="correo" id="registerEmail" required>
 			</div>
 
 			<div class="inputGroup inputGroup2">
+				<!-- Grupo de entrada para el nombre de usuario -->
 				<label for="username" id="RegisterNameLabel">Nombre De Usuario</label>
 				<input type="text" name="nombre" id="registerName" required>
 			</div>
 
 			<div class="inputGroup inputGroup3">
+				<!-- Grupo de entrada para la contraseña -->
 				<label for="RegisterPassword" id="RegisterPasswordLabel">Contraseña</label>
 				<input type="password" name="contraseña" id="RegisterPassword" required>
+				<!-- Opción para mostrar/ocultar la contraseña -->
 				<label id="showPasswordToggle" for="showPasswordCheck">Mostrar
 					<input id="showPasswordCheck" type="checkbox" />
 					<div class="indicator"></div>
 				</label>
 			</div>
 
+			<!-- Botón para enviar el formulario -->
 			<div class="inputGroup inputGroup5">
 				<button id="register" value="register now" name="submit" class="btn">Registrarse</button>
 			</div>
+
+			<!-- Enlace para usuarios que ya tienen una cuenta -->
 			<div class="register">
-				<a href="{{ url_for("login") }}">¿Ya tienes una cuenta?</a>
+				<a href="{{ url_for('login') }}">¿Ya tienes una cuenta?</a>
 			</div>
 
 		</form>
@@ -248,13 +259,15 @@
 	</form>
 
 	<!-- partial -->
+	<!-- Carga de scripts necesarios -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 	<script src="NextgenmediaSVGPlugin.min_2.js"></script>
-	<script src="{{ url_for("static", filename="js/register.js") }}"></script>
+	<script src='{{ url_for('static', filename='js/register.js' ) }}'></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 </body>
+<!-- Manejo de mensajes de éxito o error después del registro -->
 {% if "Registro exitoso" in mensaje %}
 <script>
 	Swal.fire({
@@ -268,20 +281,20 @@
 	});
 </script>
 {% else %}
-	{% if mensaje %}
-	<script>
-		Swal.fire({
-			title: "Error",
-			text: "{{ mensaje }}",
-			icon: "error",
-			confirmButtonText: "Intentar de nuevo",
+{% if mensaje %}
+<script>
+	Swal.fire({
+		title: "Error",
+		text: "{{ mensaje }}",
+		icon: "error",
+		confirmButtonText: "Intentar de nuevo",
 
-			customClass: {
-                confirmButton: "popup-boton"
-            }
-		});
-	</script>
-	{% endif %}
+		customClass: {
+			confirmButton: "popup-boton"
+		}
+	});
+</script>
+{% endif %}
 {% endif %}
 
 
