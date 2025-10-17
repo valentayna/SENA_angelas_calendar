@@ -1,0 +1,60 @@
+-- Crear la tabla Usuarios
+CREATE TABLE Usuarios (
+    idcliente INT AUTO_INCREMENT PRIMARY KEY,
+    correo VARCHAR(255) NOT NULL UNIQUE,
+    nombre VARCHAR(255) NOT NULL,
+    contraseña VARCHAR(255) NOT NULL,  -- Recomendado: Usa hashing para contraseñas en producción
+    rol VARCHAR(50) NOT NULL  -- Ejemplo: 'admin', 'cliente'
+);
+
+-- Crear la tabla Servicios
+CREATE TABLE Servicios (
+    idservicio INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    descripcion TEXT,
+    duracion INT NOT NULL,  -- Duración en minutos, por ejemplo
+    precio DECIMAL(10, 2) NOT NULL
+);
+
+-- Crear la tabla Citas
+CREATE TABLE Citas (
+    idcita INT AUTO_INCREMENT PRIMARY KEY,
+    idcliente INT NOT NULL,
+    fecha DATE NOT NULL,
+    horainicio TIME NOT NULL,
+    horafin TIME NOT NULL,
+    preciototal DECIMAL(10, 2) NOT NULL,
+    
+    -- Foreign key para idcliente que referencia a Usuarios
+    FOREIGN KEY (idcliente) REFERENCES Usuarios(idcliente)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- Crear la tabla ServiciosSelect
+CREATE TABLE ServiciosSelect (
+    idserviciosselect INT AUTO_INCREMENT PRIMARY KEY,
+    idcliente INT NOT NULL,
+    idservicio INT NOT NULL,
+    idcita INT NOT NULL,
+    
+    -- Foreign keys
+    FOREIGN KEY (idcliente) REFERENCES Usuarios(idcliente)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (idservicio) REFERENCES Servicios(idservicio)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (idcita) REFERENCES Citas(idcita)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- Insertar datos de ejemplo
+INSERT INTO Usuarios (correo, nombre, contraseña, rol) VALUES ('ejemplo@correo.com', 'Juan Pérez', 'hashed_password', 'cliente');  -- Inserta un usuario
+
+INSERT INTO Servicios (nombre, descripcion, duracion, precio) VALUES ('Corte de cabello', 'Corte básico', 30, 20.00);  -- Inserta un servicio
+
+INSERT INTO Citas (idcliente, fecha, horainicio, horafin, preciototal) VALUES (1, '2023-12-01', '10:00:00', '10:30:00', 20.00);  -- Inserta una cita (asume idcliente=1 de la inserción anterior)
+
+INSERT INTO ServiciosSelect (idcliente, idservicio, idcita) VALUES (1, 1, 1);  -- Inserta una selección de servicio (asume los IDs generados)

@@ -16,10 +16,9 @@ def conectar():
     import mysql.connector    # Importa el conector MySQL
     # Establece la conexión a la base de datos con los parámetros necesarios
     conn = mysql.connector.connect(
-                    host='cinema-server.mysql.database.azure.com',
-                    user='main',
-                    password='Va862082',
-                    database='angelas_calendar',
-                    ssl_ca='BaltimoreCyberTrustRoot.crt.pem'    # Certificado SSL para la conexión segura
+                    host='localhost',
+                    user='root',
+                    password='',
+                    database='angelas-calendar',
                 )
     return conn    # retorna el objeto de conexión
