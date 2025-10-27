@@ -9,7 +9,7 @@ Este módulo proporciona:
 
 # Importación de librerías y modulos
 
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session, url_for, jsonify
 from datetime import datetime, time, date
 import conexion    # modulo para manejar la conexión a la base de datos
 
@@ -181,6 +181,7 @@ def register():
 
     """
     Maneja el registro de nuevos usuarios
+    Compatible con formulario HTML y JSON (Postman)
     
     Validaciones:
         - Longitud mínima de contraseña (8 caracteres)
@@ -189,46 +190,60 @@ def register():
     Returns:
         render_template: Template register.html con mensajes de estado
     """
-        
     mensaje = ""
+
     if request.method == 'POST':
-        correo = request.form['correo']
-        nombre = request.form['nombre']
-        contraseña = request.form['contraseña']
+        # Detectar si viene JSON o formulario
+        data = request.get_json(silent=True)
+        if data:
+            correo = data.get('correo')
+            nombre = data.get('nombre')
+            contraseña = data.get('contraseña')
+        else:
+            correo = request.form.get('correo')
+            nombre = request.form.get('nombre')
+            contraseña = request.form.get('contraseña')
+
         rol = "cliente"
 
+        if not correo or not nombre or not contraseña:
+            return jsonify({"error": "Faltan campos obligatorios"}), 400
+
         if len(contraseña) < 8:
-            mensaje = "La contraseña debe contener almenos 8 digitos"
-        
-        else:
+            mensaje = "La contraseña debe contener al menos 8 dígitos"
+            return jsonify({"mensaje": mensaje}), 400
 
-            conn = None
-            cursor = None
-            try:
-                conn = conexion.conectar()
-                cursor = conn.cursor()
+        try:
+            conn = conexion.conectar()
+            cursor = conn.cursor()
 
-                # Verificar si ya existe el correo
-                cursor.execute("SELECT * FROM usuarios WHERE correo = %s", (correo,))
-                existente = cursor.fetchone()
-                if existente:
-                    mensaje = "Ya existe un usuario registrado con ese correo."
-                else:
-                    # Insertar nuevo usuario
-                    cursor.execute("INSERT INTO usuarios (correo, nombre, contraseña, rol) VALUES (%s, %s, %s, %s)", 
-                                (correo, nombre, contraseña, rol))
-                    conn.commit()
-                    mensaje = "Registro exitoso. ¡Inicia sesión!"
+            # Verificar si ya existe el correo
+            cursor.execute("SELECT * FROM usuarios WHERE correo = %s", (correo,))
+            existente = cursor.fetchone()
 
-            except Exception as e:
-                mensaje = f"Error en la base de datos: {e}"
+            if existente:
+                mensaje = "Ya existe un usuario registrado con ese correo."
+                return jsonify({"mensaje": mensaje}), 409
 
-            finally:
-                if cursor:
-                    cursor.close()
-                if conn and conn.is_connected():
-                    conn.close()
+            # Insertar nuevo usuario
+            cursor.execute(
+                "INSERT INTO usuarios (correo, nombre, contraseña, rol) VALUES (%s, %s, %s, %s)",
+                (correo, nombre, contraseña, rol)
+            )
+            conn.commit()
+            mensaje = "Registro exitoso. ¡Inicia sesión!"
+            return jsonify({"mensaje": mensaje}), 201
 
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+
+        finally:
+            if cursor:
+                cursor.close()
+            if conn and conn.is_connected():
+                conn.close()
+
+    # Si es GET, solo devuelve el formulario (si existe)
     return render_template('register.html', mensaje=mensaje)
 
 if __name__ == '__main__':

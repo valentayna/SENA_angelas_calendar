@@ -3,8 +3,8 @@ CREATE TABLE Usuarios (
     idcliente INT AUTO_INCREMENT PRIMARY KEY,
     correo VARCHAR(255) NOT NULL UNIQUE,
     nombre VARCHAR(255) NOT NULL,
-    contraseña VARCHAR(255) NOT NULL,  -- Recomendado: Usa hashing para contraseñas en producción
-    rol VARCHAR(50) NOT NULL  -- Ejemplo: 'admin', 'cliente'
+    contraseña VARCHAR(255) NOT NULL,
+    rol VARCHAR(50) NOT NULL
 );
 
 -- Crear la tabla Servicios
@@ -12,7 +12,7 @@ CREATE TABLE Servicios (
     idservicio INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     descripcion TEXT,
-    duracion INT NOT NULL,  -- Duración en minutos, por ejemplo
+    duracion INT NOT NULL,  -- Duración en minutos
     precio DECIMAL(10, 2) NOT NULL
 );
 
