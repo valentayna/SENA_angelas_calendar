@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,54 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
-            
+
             <!-- Sidebar -->
-            <div class="col-12 col-md-1 border-end">
-                <div class="d-flex d-md-block py-3">
-                    <a href="#" class="d-block text-center py-2 py-md-3 text-danger flex-fill"><i class="bi bi-house fs-4"></i></a>
-                    <a href="#" class="d-block text-center py-2 py-md-3 text-secondary flex-fill"><i class="bi bi-calendar fs-4"></i></a>
-                    <a href="#" class="d-block text-center py-2 py-md-3 text-secondary flex-fill"><i class="bi bi-bell fs-4"></i></a>
-                    <a href="#" class="d-block text-center py-2 py-md-3 text-secondary flex-fill"><i class="bi bi-person fs-4"></i></a>
-                    <a href="#" class="d-block text-center py-2 py-md-3 text-secondary flex-fill d-md-none"><i class="bi bi-box-arrow-right fs-4"></i></a>
+            <div class="col-12 col-lg-1 border-end bg-light">
+                <div class="d-flex d-lg-block py-2 px-2">
+                    <a href="#" class="d-block text-center py-2 py-lg-3 text-danger flex-fill text-decoration-none">
+                        <i class="bi bi-calendar3 fs-4"></i>
+                        <span class="d-none d-lg-block small mt-1">Calendario</span>
+                    </a>
+                    <a href="#" class="d-block text-center py-2 py-lg-3 text-secondary flex-fill text-decoration-none">
+                        <i class="bi bi-people fs-4"></i>
+                        <span class="d-none d-lg-block small mt-1">Clientes</span>
+                    </a>
+                    <a href="#" class="d-block text-center py-2 py-lg-3 text-secondary flex-fill text-decoration-none">
+                        <i class="bi bi-scissors fs-4"></i>
+                        <span class="d-none d-lg-block small mt-1">Servicios</span>
+                    </a>
+                    <a href="#" class="d-block text-center py-2 py-lg-3 text-secondary flex-fill text-decoration-none">
+                        <i class="bi bi-clock-history fs-4"></i>
+                        <span class="d-none d-lg-block small mt-1">Horarios</span>
+                    </a>
+                    <a href="#" class="d-block text-center py-2 py-lg-3 text-secondary flex-fill text-decoration-none">
+                        <i class="bi bi-bell fs-4"></i>
+                        <span class="d-none d-lg-block small mt-1">Notificaciones</span>
+                    </a>
+                    <a href="#"
+                        class="d-block text-center py-2 py-lg-3 text-secondary flex-fill d-lg-none text-decoration-none">
+                        <i class="bi bi-box-arrow-right fs-4"></i>
+                    </a>
+                </div>
+                <div class="d-none d-lg-block px-2 pb-3 mt-auto">
+                    <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                        <i class="bi bi-box-arrow-right fs-4"></i>
+                        <span class="d-block small mt-1">Salir</span>
+                    </a>
                 </div>
             </div>
 
             <!-- Panel Principal -->
             <div class="col-12 col-md-8 overflow-auto">
                 <div class="p-4">
-                    
+
                     <!-- Header -->
-                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
+                    <div
+                        class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
                         <h1 class="h3 h1-md mb-0">Hola, Usuario</h1>
                         <div>
                             <span class="badge bg-warning text-dark me-2">Nueva notificación</span>
@@ -38,16 +66,20 @@
                     <!-- Imágenes -->
                     <div class="row mb-4 g-2">
                         <div class="col-6 col-md-3">
-                            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400" class="img-fluid">
+                            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400"
+                                class="img-fluid">
                         </div>
                         <div class="col-6 col-md-3">
-                            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400" class="img-fluid">
+                            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400"
+                                class="img-fluid">
                         </div>
                         <div class="col-6 col-md-3">
-                            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=400" class="img-fluid">
+                            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=400"
+                                class="img-fluid">
                         </div>
                         <div class="col-6 col-md-3">
-                            <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=400" class="img-fluid">
+                            <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=400"
+                                class="img-fluid">
                         </div>
                     </div>
 
@@ -95,12 +127,13 @@
             <!-- Panel Secundario -->
             <div class="col-12 col-lg-3 bg-light">
                 <div class="p-3 p-lg-4">
-                    
+
                     <!-- User Info -->
-                    <div class="card mb-3">
+                    <div class="card mb-2">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <img src="https://ui-avatars.com/api/?name=Usuario" class="me-3 flex-shrink-0" width="50" height="50">
+                                <img src="https://ui-avatars.com/api/?name=Usuario" class="me-3 flex-shrink-0"
+                                    width="50" height="50">
                                 <div class="overflow-hidden">
                                     <h6 class="mb-0 text-truncate">Usuario</h6>
                                     <small class="text-muted text-truncate d-block">user@mail.com</small>
@@ -110,7 +143,7 @@
                     </div>
 
                     <!-- Calendario -->
-                    <div class="card mb-3">
+                    <div class="card mb-2">
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center">
                                 <button class="btn btn-sm btn-light" id="prevMonth">
@@ -143,7 +176,7 @@
                     </div>
 
                     <!-- Próxima Cita -->
-                    <div class="card mb-3">
+                    <div class="card mb-2">
                         <div class="card-body">
                             <p class="text-muted mb-2 small">Próxima cita:</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -151,7 +184,8 @@
                                     <h1 class="display-5 mb-0 fw-bold">15</h1>
                                     <p class="text-muted mb-0 small">Noviembre</p>
                                 </div>
-                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#citaModal">
+                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#citaModal">
                                     <i class="bi bi-chevron-right"></i>
                                 </button>
                             </div>
@@ -217,25 +251,25 @@
 
             for (let s = 0; s < semanas; s++) {
                 const tr = document.createElement('tr');
-                
+
                 for (let d = 0; d < 7; d++) {
                     const td = document.createElement('td');
-                    
+
                     if ((s === 0 && d < primerDiaAjustado) || dia > diasEnMes) {
                         td.innerHTML = '';
                     } else {
                         const fechaCompleta = `${año}-${String(mes + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
-                        
+
                         if (fechasCitas.includes(fechaCompleta)) {
                             const hoy = new Date();
                             const fechaCita = new Date(fechaCompleta);
-                            
-                            if (fechaCita < hoy.setHours(0,0,0,0)) {
+
+                            if (fechaCita < hoy.setHours(0, 0, 0, 0)) {
                                 td.className = 'bg-success text-white';
                             } else {
                                 td.className = 'bg-warning';
                             }
-                            
+
                             td.style.cursor = 'pointer';
                             td.onclick = () => {
                                 const cita = citas.find(c => normalizarFecha(c.fecha) === fechaCompleta);
@@ -247,14 +281,14 @@
                                 }
                             };
                         }
-                        
+
                         td.textContent = dia;
                         dia++;
                     }
-                    
+
                     tr.appendChild(td);
                 }
-                
+
                 tbody.appendChild(tr);
             }
         }
@@ -272,4 +306,5 @@
         renderCalendario(fechaActual);
     </script>
 </body>
+
 </html>
