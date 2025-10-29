@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modificando cita</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../static/css/stylesCliente.css">
+  </head>
+  <body class="app-bg">
+    <div class="d-flex vh-100 overflow-hidden">
+        <aside class="sidebar d-none d-lg-flex flex-column align-items-start p-4">
+            <div class="brand-small">ANGELA'S <br><span class="brand mb-4">CALENDAR</span></div>
+            <nav class="nav flex-column w-100" style="padding-top: 100px;">
+                <a class="nav-link" href="homeCliente.html"> <i class="bi bi-house-door-fill"></i> Inicio</a>
+                <a class="nav-link text-danger" href="citasCliente.html"> <i class="bi bi-calendar"></i> Citas</a>
+                <a class="nav-link" href="notificacionesCliente.html"> <i class="bi bi-chat-right-dots-fill"></i> Notificación</a>
+                <a class="nav-link" href="usuarioCliente.html"> <i class="bi bi-person-fill"></i> Usuario</a>
+            </nav>
+            <div class="mt-auto w-100">
+                <a class="nav-link text-muted" href="#"> <i class="bi bi-door-open-fill"></i> Salir</a>
+            </div>
+        </aside>
+
+      <main class="flex-fill overflow-auto p-4">
+        <div class="container-fluid">
+          <div class="row mb-3">
+            <div class="col-12 d-flex align-items-center gap-3">
+              <button class="btn btn-link d-lg-none p-0 fs-3"><i class="bi bi-list"></i></button>
+              <h2 class="m-0 title">Modificando cita</h2>
+            </div>
+          </div>
+
+          <div class="row gx-4 gy-4">
+            <!-- Services column -->
+            <div class="col-lg-4">
+              <div class="white-panel p-3 rounded-4 shadow-sm">
+                <h5 class="mb-3">Selecciona Servicios</h5>
+                <div class="services-list overflow-auto" style="max-height:420px;">
+                  <div class="service-item d-flex align-items-start mb-3 p-2 rounded-3 border service-selected">
+                    <div class="thumb me-3"></div>
+                    <div class="flex-fill">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="service-name">Corte de cabello</div>
+                        <div class="check">✓</div>
+                      </div>
+                      <div class="service-desc small text-muted">Detalle detalle detalle detalle detalle detalle</div>
+                      <div class="d-flex justify-content-between small text-muted mt-2">
+                        <div>Precio: $8.000</div>
+                        <div>Duración: 20min</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-item d-flex align-items-start mb-3 p-2 rounded-3 border">
+                    <div class="thumb me-3"></div>
+                    <div class="flex-fill">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="service-name">Manicura</div>
+                        <div class="check">✓</div>
+                      </div>
+                      <div class="service-desc small text-muted">Detalle detalle detalle detalle detalle</div>
+                      <div class="d-flex justify-content-between small text-muted mt-2">
+                        <div>Precio: $15.000</div>
+                        <div>Duración: 20min</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-item d-flex align-items-start mb-3 p-2 rounded-3 border">
+                    <div class="thumb me-3"></div>
+                    <div class="flex-fill">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="service-name">Maquillaje</div>
+                        <div class="check muted">●</div>
+                      </div>
+                      <div class="service-desc small text-muted">Detalle detalle detalle detalle detalle</div>
+                      <div class="d-flex justify-content-between small text-muted mt-2">
+                        <div>Precio: $17.000</div>
+                        <div>Duración: 20min</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Calendar column -->
+            <div class="col-lg-4">
+              <h5>Selecciona Día</h5>
+              <div class="calendar-panel p-3 rounded-4 text-white position-relative">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="date-badge me-3"><i class="bi bi-calendar"></i></div>
+                  <div class="date-input">19/07/2025</div>
+                </div>
+                <div class="calendar-inner p-3 rounded-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <button class="btn btn-sm btn-light rounded-circle">◀</button>
+                    <div class="month">Julio</div>
+                    <button class="btn btn-sm btn-light rounded-circle">▶</button>
+                  </div>
+                  <div class="calendar-grid mb-3">
+                    <!-- replicate 42 day boxes -->
+                    <div class="grid-inner">
+                      <!-- inline boxes similar to previous calendar -->
+                      <!-- small sample set -->
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day accent"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                      <div class="day"></div>
+                    </div>
+                  </div>
+
+                  <div class="time-select d-flex gap-3 align-items-center">
+                    <div>
+                      <div class="small">Selecciona hora inicio</div>
+                      <div class="d-flex gap-2 align-items-center mt-2">
+                        <div class="time-box">8</div>
+                        <div class="time-label">Horas</div>
+                        <div class="time-box">00</div>
+                        <div class="time-label">Minutos</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Summary column -->
+            <div class="col-lg-4">
+              <h5>&nbsp;</h5>
+              <div class="summary-panel p-4 rounded-4 bg-white border" style="margin-bottom: 50px;">
+                <div class="summary-text">
+                  <div>Precio: <strong>$23.000</strong></div>
+                  <div>Duración: <strong>40min</strong></div>
+                  <div>Día: <strong>19/07/2025</strong></div>
+                  <div>Hora Inicio: <strong>8:00</strong></div>
+                  <div>Hora fin: <strong>8:40</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- bottom actions (desktop: centered, mobile: fixed) -->
+          <div class="row mt-4">
+            <div class="col-12 d-flex justify-content-center gap-4 actions-desktop d-none d-md-flex">
+              <button class="btn cta-btn btn-lg rounded-pill px-5">Cancelar</button>
+              <button class="btn cta-btn btn-lg rounded-pill px-5">Agendar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-actions d-md-none position-fixed bottom-0 start-0 end-0 p-3">
+          <div class="d-flex gap-3 justify-content-center">
+            <button class="btn cta-btn btn-lg rounded-pill px-4">Cancelar</button>
+            <button class="btn cta-btn btn-lg rounded-pill px-4">Agendar</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
