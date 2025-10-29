@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Horarios - Angela's Calendar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-4">
+        <h2 class="mb-4 fw-bold text-center text-uppercase">Configuración de Horarios</h2>
+
+        <div class="row g-4">
+            <!-- Panel de días de trabajo y calendario -->
+            <div class="col-12 col-lg-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <!-- Días de trabajo -->
+                        <h5 class="fw-bold mb-3">Días de trabajo</h5>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <button class="btn btn-outline-primary btn-sm toggle-day">Lun</button>
+                            <button class="btn btn-outline-primary btn-sm toggle-day">Mar</button>
+                            <button class="btn btn-outline-primary btn-sm toggle-day">Mié</button>
+                            <button class="btn btn-outline-primary btn-sm toggle-day">Jue</button>
+                            <button class="btn btn-outline-primary btn-sm toggle-day">Vie</button>
+                            <button class="btn btn-outline-primary btn-sm toggle-day">Sáb</button>
+                            <button class="btn btn-outline-primary btn-sm toggle-day">Dom</button>
+                        </div>
+
+                        <!-- Días libres -->
+                        <h5 class="fw-bold mb-3">Días libres</h5>
+
+                        <!-- Navegación del calendario -->
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <button class="btn btn-outline-secondary btn-sm" id="prevMonth">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <h6 class="mb-0 fw-bold" id="calendarTitle">Julio 2025</h6>
+                            <button class="btn btn-outline-secondary btn-sm" id="nextMonth">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Encabezado de calendario -->
+                        <div class="row row-cols-7 text-center small fw-bold text-muted mb-1">
+                            <div class="col">L</div>
+                            <div class="col">M</div>
+                            <div class="col">X</div>
+                            <div class="col">J</div>
+                            <div class="col">V</div>
+                            <div class="col">S</div>
+                            <div class="col">D</div>
+                        </div>
+
+                        <!-- Días del calendario -->
+                        <div class="row row-cols-7 g-1" id="calendarDays"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de horas de trabajo -->
+            <div class="col-12 col-lg-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3">Horas de trabajo</h5>
+                        <div id="hourRanges"></div>
+
+                        <!-- Botón para agregar nuevo rango -->
+                        <div class="mt-3">
+                            <button class="btn btn-outline-primary btn-sm" id="addRange">
+                                <i class="bi bi-plus-circle me-1"></i>Agregar rango
+                            </button>
+                        </div>
+
+                        <!-- Guardar cambios -->
+                        <div class="text-end mt-4">
+                            <button class="btn btn-danger">Guardar cambios</button>
+                        </div>
+
+                        <div class="alert alert-light border mt-3 small">
+                            Los cambios se aplicarán a partir de la próxima semana.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // --------- DÍAS DE TRABAJO ----------
+        document.querySelectorAll('.toggle-day').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('btn-primary');
+                btn.classList.toggle('btn-outline-primary');
+            });
+        });
+
+        // --------- CALENDARIO DE DÍAS LIBRES ----------
+        const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        let fechaActual = new Date();
+        let diasLibres = [];
+
+        function renderCalendario(fecha) {
+            const año = fecha.getFullYear();
+            const mes = fecha.getMonth();
+            document.getElementById('calendarTitle').textContent = `${meses[mes]} ${año}`;
+
+            const primerDia = new Date(año, mes, 1).getDay();
+            const diasEnMes = new Date(año, mes + 1, 0).getDate();
+            const primerDiaAjustado = (primerDia + 6) % 7;
+
+            const container = document.getElementById('calendarDays');
+            container.innerHTML = '';
+
+            for (let i = 0; i < primerDiaAjustado; i++) {
+                container.appendChild(document.createElement('div')).classList.add('col');
+            }
+
+            for (let dia = 1; dia <= diasEnMes; dia++) {
+                const fechaStr = `${año}-${String(mes + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+                const col = document.createElement('div');
+                col.className = 'col';
+                const btn = document.createElement('button');
+                btn.className = 'btn btn-sm w-100';
+                btn.textContent = dia;
+
+                if (diasLibres.includes(fechaStr)) {
+                    btn.classList.add('btn-warning', 'text-white');
+                } else {
+                    btn.classList.add('btn-light');
+                }
+
+                btn.onclick = () => {
+                    if (diasLibres.includes(fechaStr)) {
+                        diasLibres = diasLibres.filter(d => d !== fechaStr);
+                    } else {
+                        diasLibres.push(fechaStr);
+                    }
+                    renderCalendario(fechaActual);
+                };
+
+                col.appendChild(btn);
+                container.appendChild(col);
+            }
+        }
+
+        document.getElementById('prevMonth').onclick = () => {
+            fechaActual.setMonth(fechaActual.getMonth() - 1);
+            renderCalendario(fechaActual);
+        };
+        document.getElementById('nextMonth').onclick = () => {
+            fechaActual.setMonth(fechaActual.getMonth() + 1);
+            renderCalendario(fechaActual);
+        };
+        renderCalendario(fechaActual);
+
+        // --------- HORAS DE TRABAJO ----------
+        const contenedor = document.getElementById('hourRanges');
+        let contador = 0;
+
+        function agregarRango(horaInicio = '', horaFin = '') {
+            contador++;
+            const div = document.createElement('div');
+            div.className = 'mb-3';
+            div.innerHTML = `
+        <label class="form-label small text-muted">Rango ${contador}</label>
+        <div class="d-flex gap-2 align-items-center">
+          <input type="time" class="form-control form-control-sm" value="${horaInicio}">
+          <span>-</span>
+          <input type="time" class="form-control form-control-sm" value="${horaFin}">
+          <button class="btn btn-sm btn-outline-danger eliminar"><i class="bi bi-trash"></i></button>
+        </div>`;
+            contenedor.appendChild(div);
+
+            div.querySelector('.eliminar').onclick = () => {
+                div.remove();
+            };
+        }
+
+        document.getElementById('addRange').onclick = () => agregarRango('08:00', '12:00');
+
+        // Agregar un rango por defecto
+        agregarRango('08:00', '12:00');
+        agregarRango('14:00', '18:00');
+    </script>
+</body>
+
+</html>

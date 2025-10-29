@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Servicios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Botón hamburguesa para móvil/tablet -->
+            <button class="btn btn-danger rounded-circle position-fixed d-lg-none"
+                style="top: 20px; right: 20px; width: 50px; height: 50px; z-index: 1050;" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebarMenu">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+
+            <!-- Sidebar Desktop -->
+            <div class="col-lg-1 border-end bg-light d-none d-lg-block">
+                <div class="p-1 d-flex flex-column" style="min-height: 100vh;">
+                    <h6 class="mb-4">ANGELA'S<br><strong>CALENDAR</strong></h6>
+
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#" class="d-block text-center py-2 py-lg-2 text-danger flex-fill text-decoration-none">
+                            <i class="bi bi-house fs-6"></i>
+                            <span class="d-block small mt-1">Inicio</span>
+                        </a>
+                        <a href="#"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-scissors fs-6"></i>
+                            <span class="d-block small mt-1">Servicios</span>
+                        </a>
+                        <a href="#"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-clock-history fs-6"></i>
+                            <span class="d-block small mt-1">Horario</span>
+                        </a>
+                        <a href="#"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-bell fs-6"></i>
+                            <span class="d-block small mt-1">Notificaciones</span>
+                        </a>
+                        <a href="#"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-person fs-6"></i>
+                            <span class="d-block small mt-1">Usuario</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-auto pt-4">
+                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-box-arrow-right fs-6"></i>
+                            <span class="d-block small mt-1">Salir</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Móvil/Tablet (Offcanvas) -->
+            <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="sidebarMenu">
+                <div class="offcanvas-header border-bottom">
+                    <h6 class="mb-0  ">ANGELA'S<br><strong>CALENDAR</strong></h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body p-3 d-flex flex-column">
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#" class="d-block text-center py-2 text-danger text-decoration-none">
+                            <i class="bi bi-house fs-6"></i>
+                            <span class="d-block small mt-1">Inicio</span>
+                        </a>
+                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-scissors fs-6"></i>
+                            <span class="d-block small mt-1">Servicios</span>
+                        </a>
+                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-clock-history fs-6"></i>
+                            <span class="d-block small mt-1">Horario</span>
+                        </a>
+                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-bell fs-6"></i>
+                            <span class="d-block small mt-1">Notificaciones</span>
+                        </a>
+                        <a href="#" class="d-block text-center py-2
+                         text-secondary text-decoration-none">
+                            <i class="bi bi-person fs-6"></i>
+                            <span class="d-block small mt-1">Usuario</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-auto">
+                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-box-arrow-right fs-6"></i>
+                            <span class="d-block small mt-1">Salir</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Principal -->
+            <div class="col-12 col-lg-11 bg-white" style="max-height: 100vh; overflow-y: auto;">
+                <div class="col-12 col-lg-12">
+                    <div class="p-1">
+
+                        <!-- Header -->
+                        <div class="d-flex justify-content-between align-items-center mb-4" style="height: 10vh">
+                            <h2>Menú de servicios</h2>
+                        </div>
+
+                        <!-- Grid de Servicios -->
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3"
+                            style=" max-height: 76vh; overflow-y: auto;">
+
+                            <!-- Servicio 1 -->
+                            <div class=" col">
+                                <div class="card h-100">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400"
+                                            class="card-img-top" style="height: 200px; object-fit: cover;">
+                                        <div class="dropdown position-absolute top-0 end-0 m-2">
+                                            <button class="btn btn-warning btn-sm rounded-circle"
+                                                data-bs-toggle="dropdown">
+                                                <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#modificarServicioModal">Modificar</a></li>
+                                                <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Corte de cabello</h5>
+                                        <p class="card-text small text-muted">
+                                            <span class="d-block">Detalle detalle detalle detalle detalle detalle
+                                                detalle
+                                                detalle</span>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <span class="text-muted small">Precio: $8.000</span>
+                                            <span class="text-muted small">Duración: 26min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Servicio 2 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=400"
+                                            class="card-img-top" style="height: 200px; object-fit: cover;">
+                                        <div class="dropdown position-absolute top-0 end-0 m-2">
+                                            <button class="btn btn-warning btn-sm rounded-circle"
+                                                data-bs-toggle="dropdown">
+                                                <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#modificarServicioModal">Modificar</a></li>
+                                                <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Manicura</h5>
+                                        <p class="card-text small text-muted">
+                                            <span class="d-block">Detalle detalle detalle detalle detalle detalle
+                                                detalle
+                                                detalle</span>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <span class="text-muted small">Precio: $36.100</span>
+                                            <span class="text-muted small">Duración: 26min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Servicio 3 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=400"
+                                            class="card-img-top" style="height: 200px; object-fit: cover;">
+                                        <div class="dropdown position-absolute top-0 end-0 m-2">
+                                            <button class="btn btn-warning btn-sm rounded-circle"
+                                                data-bs-toggle="dropdown">
+                                                <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#modificarServicioModal">Modificar</a></li>
+                                                <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Maquillaje</h5>
+                                        <p class="card-text small text-muted">
+                                            <span class="d-block">Detalle detalle detalle detalle detalle detalle
+                                                detalle
+                                                detalle</span>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <span class="text-muted small">Precio: $79.000</span>
+                                            <span class="text-muted small">Duración: 26min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Servicio 4 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400"
+                                            class="card-img-top" style="height: 200px; object-fit: cover;">
+                                        <div class="dropdown position-absolute top-0 end-0 m-2">
+                                            <button class="btn btn-warning btn-sm rounded-circle"
+                                                data-bs-toggle="dropdown">
+                                                <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#modificarServicioModal">Modificar</a></li>
+                                                <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Corte de cabello</h5>
+                                        <p class="card-text small text-muted">
+                                            <span class="d-block">Detalle detalle detalle detalle detalle detalle
+                                                detalle
+                                                detalle</span>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <span class="text-muted small">Precio: $8.000</span>
+                                            <span class="text-muted small">Duración: 26min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Servicio 5 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=400"
+                                            class="card-img-top" style="height: 200px; object-fit: cover;">
+                                        <div class="dropdown position-absolute top-0 end-0 m-2">
+                                            <button class="btn btn-warning btn-sm rounded-circle"
+                                                data-bs-toggle="dropdown">
+                                                <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#modificarServicioModal">Modificar</a></li>
+                                                <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Manicura</h5>
+                                        <p class="card-text small text-muted">
+                                            <span class="d-block">Detalle detalle detalle detalle detalle detalle
+                                                detalle
+                                                detalle</span>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <span class="text-muted small">Precio: $36.100</span>
+                                            <span class="text-muted small">Duración: 26min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Servicio 6 -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=400"
+                                            class="card-img-top" style="height: 200px; object-fit: cover;">
+                                        <div class="dropdown position-absolute top-0 end-0 m-2">
+                                            <button class="btn btn-warning btn-sm rounded-circle"
+                                                data-bs-toggle="dropdown">
+                                                <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#modificarServicioModal">Modificar</a></li>
+                                                <li><a class="dropdown-item text-danger" href="#">Eliminar</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Maquillaje</h5>
+                                        <p class="card-text small text-muted">
+                                            <span class="d-block">Detalle detalle detalle detalle detalle detalle
+                                                detalle
+                                                detalle</span>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <span class="text-muted small">Precio: $79.000</span>
+                                            <span class="text-muted small">Duración: 26min</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#agregarServicioModal">
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Modificar Servicio -->
+        <div class="modal fade" id="modificarServicioModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modificar Servicio</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Nombre del servicio</label>
+                                <input type="text" class="form-control" value="Corte de cabello">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Descripción</label>
+                                <textarea class="form-control"
+                                    rows="3">Detalle detalle detalle detalle detalle detalle detalle detalle</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Imagen</label>
+                                <input type="file" class="form-control" accept="image/*">
+                                <small class="text-muted">Dejar vacío para mantener la imagen actual</small>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="form-label">Precio</label>
+                                    <input type="number" class="form-control" value="8000">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Duración (min)</label>
+                                    <input type="number" class="form-control" value="26">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

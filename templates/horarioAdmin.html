@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Horarios - Angela's Calendar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        /* --- Estilo para cuadrícula del calendario --- */
+        #calendarDays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+
+        #calendarDays button {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 6px;
+            transition: 0.2s ease;
+        }
+
+        #calendarDays button:hover {
+            background-color: #0d6efd;
+            color: #fff;
+        }
+
+        #calendarDays button.selected {
+            background-color: #ffc107 !important;
+            color: #fff;
+        }
+
+        /* --- Mejora visual del selector de horas --- */
+        .hour-block {
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f8f9fa;
+        }
+
+        .hour-block h6 {
+            font-weight: bold;
+            color: #495057;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Botón hamburguesa para móvil/tablet -->
+            <button class="btn btn-danger rounded-circle position-fixed d-lg-none"
+                style="top: 20px; right: 20px; width: 50px; height: 50px; z-index: 1050;" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebarMenu">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+
+            <!-- Sidebar Desktop -->
+            <div class="col-lg-1 border-end bg-light d-none d-lg-block">
+                <div class="p-1 d-flex flex-column" style="min-height: 100vh;">
+                    <h6 class="mb-4">ANGELA'S<br><strong>CALENDAR</strong></h6>
+
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#" class="d-block text-center py-2 py-lg-2 text-danger flex-fill text-decoration-none">
+                            <i class="bi bi-house fs-6"></i>
+                            <span class="d-block small mt-1">Inicio</span>
+                        </a>
+                        <a href="#"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-scissors fs-6"></i>
+                            <span class="d-block small mt-1">Servicios</span>
+                        </a>
+                        <a href="#"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-clock-history fs-6"></i>
+                            <span class="d-block small mt-1">Horario</span>
+                        </a>
+                        <a href="#"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-bell fs-6"></i>
+                            <span class="d-block small mt-1">Notificaciones</span>
+                        </a>
+                        <a href="#"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-person fs-6"></i>
+                            <span class="d-block small mt-1">Usuario</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-auto pt-4">
+                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-box-arrow-right fs-6"></i>
+                            <span class="d-block small mt-1">Salir</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Móvil/Tablet (Offcanvas) -->
+            <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="sidebarMenu">
+                <div class="offcanvas-header border-bottom">
+                    <h6 class="mb-0  ">ANGELA'S<br><strong>CALENDAR</strong></h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body p-3 d-flex flex-column">
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#" class="d-block text-center py-2 text-danger text-decoration-none">
+                            <i class="bi bi-house fs-6"></i>
+                            <span class="d-block small mt-1">Inicio</span>
+                        </a>
+                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-scissors fs-6"></i>
+                            <span class="d-block small mt-1">Servicios</span>
+                        </a>
+                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-clock-history fs-6"></i>
+                            <span class="d-block small mt-1">Horario</span>
+                        </a>
+                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-bell fs-6"></i>
+                            <span class="d-block small mt-1">Notificaciones</span>
+                        </a>
+                        <a href="#" class="d-block text-center py-2
+                         text-secondary text-decoration-none">
+                            <i class="bi bi-person fs-6"></i>
+                            <span class="d-block small mt-1">Usuario</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-auto">
+                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-box-arrow-right fs-6"></i>
+                            <span class="d-block small mt-1">Salir</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- configuración de horarios -->
+            <div class="col-1 col-lg-11 bg-white" style="max-height: 100vh; overflow-y: auto;">
+                <!-- Header -->
+                <div class="d-flex justify-content-between align-items-center mb-4" style="height: 10vh">
+                    <h2>Horario</h2>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Panel de días de trabajo y calendario -->
+                    <div class="col-12 col-lg-6">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <!-- Días de trabajo -->
+                                <h5 class="fw-bold mb-3">Días de trabajo</h5>
+                                <div class="d-flex flex-wrap gap-2 mb-4">
+                                    <button class="btn btn-outline-primary btn-sm toggle-day">Lun</button>
+                                    <button class="btn btn-outline-primary btn-sm toggle-day">Mar</button>
+                                    <button class="btn btn-outline-primary btn-sm toggle-day">Mié</button>
+                                    <button class="btn btn-outline-primary btn-sm toggle-day">Jue</button>
+                                    <button class="btn btn-outline-primary btn-sm toggle-day">Vie</button>
+                                    <button class="btn btn-outline-primary btn-sm toggle-day">Sáb</button>
+                                    <button class="btn btn-outline-primary btn-sm toggle-day">Dom</button>
+                                </div>
+
+                                <!-- Días libres -->
+                                <h5 class="fw-bold mb-3">Días libres</h5>
+
+                                <!-- Navegación del calendario -->
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <button class="btn btn-outline-secondary btn-sm" id="prevMonth">
+                                        <i class="bi bi-chevron-left"></i>
+                                    </button>
+                                    <h6 class="mb-0 fw-bold" id="calendarTitle">Julio 2025</h6>
+                                    <button class="btn btn-outline-secondary btn-sm" id="nextMonth">
+                                        <i class="bi bi-chevron-right"></i>
+                                    </button>
+                                </div>
+
+                                <!-- Encabezado de calendario -->
+                                <div class="row row-cols-7 text-center small fw-bold text-muted mb-1">
+                                    <div class="col">L</div>
+                                    <div class="col">M</div>
+                                    <div class="col">X</div>
+                                    <div class="col">J</div>
+                                    <div class="col">V</div>
+                                    <div class="col">S</div>
+                                    <div class="col">D</div>
+                                </div>
+
+                                <!-- Días del calendario -->
+                                <div id="calendarDays"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel de horas de trabajo -->
+                    <div class="col-12 col-lg-6">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body" style=" max-height: 60vh; overflow-y: auto;">
+                                <h5 class="fw-bold mb-3">Horas de trabajo</h5>
+
+                                <!-- Horario dividido por jornada -->
+                                <div class="hour-block">
+                                    <h6>Mañana</h6>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <input type="time" class="form-control form-control-sm" id="mañanaInicio"
+                                            value="08:00">
+                                        <span>-</span>
+                                        <input type="time" class="form-control form-control-sm" id="mañanaFin"
+                                            value="12:00">
+                                    </div>
+                                </div>
+
+                                <div class="hour-block">
+                                    <h6>Tarde</h6>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <input type="time" class="form-control form-control-sm" id="tardeInicio"
+                                            value="14:00">
+                                        <span>-</span>
+                                        <input type="time" class="form-control form-control-sm" id="tardeFin"
+                                            value="18:00">
+                                    </div>
+                                </div>
+
+                                <!-- Agregar más rangos -->
+                                <div id="extraHours"></div>
+
+                                <button class="btn btn-outline-primary btn-sm mt-2" id="addRange">
+                                    <i class="bi bi-plus-circle me-1"></i>Agregar otro rango
+                                </button>
+
+
+                            </div>
+                            <!-- Guardar -->
+                            <div>
+                                <div class="d-flex justify-content-center mt-4">
+                                    <button class="btn btn-danger">Guardar cambios</button>
+                                </div>
+                                <div class="alert alert-light border mt-3 small text-center">
+                                    Los cambios se aplicarán a partir de la próxima semana.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script>
+                // ------------------ DÍAS DE TRABAJO ------------------
+                document.querySelectorAll('.toggle-day').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        btn.classList.toggle('btn-primary');
+                        btn.classList.toggle('btn-outline-primary');
+                    });
+                });
+
+                // ------------------ CALENDARIO ------------------
+                const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                let fechaActual = new Date();
+                let diasLibres = [];
+
+                function renderCalendario(fecha) {
+                    const año = fecha.getFullYear();
+                    const mes = fecha.getMonth();
+                    document.getElementById('calendarTitle').textContent = `${meses[mes]} ${año}`;
+
+                    const primerDia = new Date(año, mes, 1).getDay();
+                    const diasEnMes = new Date(año, mes + 1, 0).getDate();
+                    const primerDiaAjustado = (primerDia + 6) % 7;
+
+                    const container = document.getElementById('calendarDays');
+                    container.innerHTML = '';
+
+                    // Espacios vacíos antes del día 1
+                    for (let i = 0; i < primerDiaAjustado; i++) {
+                        const empty = document.createElement('div');
+                        container.appendChild(empty);
+                    }
+
+                    for (let dia = 1; dia <= diasEnMes; dia++) {
+                        const fechaStr = `${año}-${String(mes + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+                        const btn = document.createElement('button');
+                        btn.textContent = dia;
+
+                        if (diasLibres.includes(fechaStr)) {
+                            btn.classList.add('selected');
+                        } else {
+                            btn.classList.add('btn-light');
+                        }
+
+                        btn.onclick = () => {
+                            if (diasLibres.includes(fechaStr)) {
+                                diasLibres = diasLibres.filter(d => d !== fechaStr);
+                            } else {
+                                diasLibres.push(fechaStr);
+                            }
+                            renderCalendario(fechaActual);
+                        };
+
+                        container.appendChild(btn);
+                    }
+                }
+
+                document.getElementById('prevMonth').onclick = () => {
+                    fechaActual.setMonth(fechaActual.getMonth() - 1);
+                    renderCalendario(fechaActual);
+                };
+                document.getElementById('nextMonth').onclick = () => {
+                    fechaActual.setMonth(fechaActual.getMonth() + 1);
+                    renderCalendario(fechaActual);
+                };
+                renderCalendario(fechaActual);
+
+                // ------------------ HORARIOS ------------------
+                const extraContainer = document.getElementById('extraHours');
+                document.getElementById('addRange').onclick = () => {
+                    const div = document.createElement('div');
+                    div.classList.add('hour-block');
+                    div.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h6 class="mb-0">Rango adicional</h6>
+          <button class="btn btn-sm btn-outline-danger eliminar"><i class="bi bi-trash"></i></button>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <input type="time" class="form-control form-control-sm" value="00:00">
+          <span>-</span>
+          <input type="time" class="form-control form-control-sm" value="00:00">
+        </div>
+      `;
+                    extraContainer.appendChild(div);
+                    div.querySelector('.eliminar').onclick = () => div.remove();
+                };
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
