@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../static/css/stylesCliente.css">
+  </head>
+  <body class="app-bg">
+    <div class="d-flex vh-100 overflow-hidden">
+        <aside class="sidebar d-none d-lg-flex flex-column align-items-start p-4">
+            <div class="brand-small">ANGELA'S <br><span class="brand mb-4">CALENDAR</span></div>
+            <nav class="nav flex-column w-100" style="padding-top: 100px;">
+                <a class="nav-link" href="homeCliente.html"> <i class="bi bi-house-door-fill"></i> Inicio</a>
+                <a class="nav-link" href="citasCliente.html"> <i class="bi bi-calendar"></i> Citas</a>
+                <a class="nav-link" href="notificacionesCliente.html"> <i class="bi bi-chat-right-dots-fill"></i> Notificación</a>
+                <a class="nav-link text-danger" href="usuarioCliente.html"> <i class="bi bi-person-fill"></i> Usuario</a>
+            </nav>
+            <div class="mt-auto w-100">
+                <a class="nav-link text-muted" href="#"> <i class="bi bi-door-open-fill"></i> Salir</a>
+            </div>
+        </aside>
+
+      <main class="flex-fill overflow-auto p-4">
+        <div class="container-fluid">
+          <div class="row mb-3">
+            <div class="col-12 d-flex align-items-center gap-3">
+              <button class="btn btn-link d-lg-none p-0 fs-3"><i class="bi bi-list"></i></button>
+              <h2 class="m-0 title">Editar Usuario</h2>
+            </div>
+          </div>
+
+          <div class="row gx-4 gy-4">
+            <!-- left profile card -->
+            <div class="col-lg-4">
+              <div class="profile-panel p-4 rounded-4 text-center mx-auto">
+                <div class="avatar-wrap mb-3">
+                  <div class="avatar-circle">
+                    <span class="avatar-icon"><i class="bi bi-person-fill"></i></span>
+                  </div>
+                </div>
+                <h3 class="profile-name">Maria Petunila</h3>
+                <div class="profile-email mb-2">Mariap.123@gmail.com</div>
+              </div>
+            </div>
+
+            <!-- right form -->
+            <div class="col-lg-8">
+              <div class="form-panel p-4 rounded-4 bg-white shadow-sm" style="margin-bottom: 70px;">
+                <form>
+                  <div class="mb-4">
+                    <label class="form-label form-title">Foto de perfil</label>
+                    <div class="d-flex gap-3 align-items-center">
+                      <input type="text" class="form-control file-fake" placeholder="Subir imagen..." readonly>
+                      <button type="button" class="btn btn-outline-teal">⬇</button>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Correo</label>
+                    <input type="email" class="form-control rounded-input" placeholder="tu@email.com">
+                  </div>
+
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <label class="form-label mb-0">Contraseña</label>
+                      <div class="form-check form-switch">
+                        <label class="form-check-label small" for="showPass"></label>
+                      </div>
+                    </div>
+                    <input id="password" type="password" class="form-control rounded-input" placeholder="Contraseña">
+                  </div>
+
+                  <div class="mt-4 d-none d-lg-block">
+                    <div class="d-flex justify-content-between align-items-center bottom-actions">
+                      <a href="usuarioCliente.html" type="button" class="btn cta-btn btn-lg rounded-pill px-4">Cancelar</a>
+                      <button type="submit" class="btn cta-btn btn-lg rounded-pill px-4">Aceptar</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile bottom actions -->
+        <div class="mobile-actions d-lg-none position-fixed bottom-0 start-0 end-0 p-3">
+          <div class="d-flex gap-3 justify-content-center">
+            <a href="usuarioCliente.html" class="btn cta-btn btn-lg rounded-pill px-4">Cancelar</a>
+            <button class="btn cta-btn btn-lg rounded-pill px-4">Aceptar</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
