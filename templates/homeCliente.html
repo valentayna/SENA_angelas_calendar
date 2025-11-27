@@ -10,42 +10,93 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
         <div class="row">
 
-            <!-- Sidebar -->
-            <div class="col-12 col-lg-1 border-end bg-light">
-                <div class="d-flex d-lg-block py-2 px-2">
-                    <a href="#" class="d-block text-center py-2 py-lg-3 text-danger flex-fill text-decoration-none">
-                        <i class="bi bi-calendar3 fs-4"></i>
-                        <span class="d-none d-lg-block small mt-1">Calendario</span>
-                    </a>
-                    <a href="#" class="d-block text-center py-2 py-lg-3 text-secondary flex-fill text-decoration-none">
-                        <i class="bi bi-people fs-4"></i>
-                        <span class="d-none d-lg-block small mt-1">Clientes</span>
-                    </a>
-                    <a href="#" class="d-block text-center py-2 py-lg-3 text-secondary flex-fill text-decoration-none">
-                        <i class="bi bi-scissors fs-4"></i>
-                        <span class="d-none d-lg-block small mt-1">Servicios</span>
-                    </a>
-                    <a href="#" class="d-block text-center py-2 py-lg-3 text-secondary flex-fill text-decoration-none">
-                        <i class="bi bi-clock-history fs-4"></i>
-                        <span class="d-none d-lg-block small mt-1">Horarios</span>
-                    </a>
-                    <a href="#" class="d-block text-center py-2 py-lg-3 text-secondary flex-fill text-decoration-none">
-                        <i class="bi bi-bell fs-4"></i>
-                        <span class="d-none d-lg-block small mt-1">Notificaciones</span>
-                    </a>
-                    <a href="#"
-                        class="d-block text-center py-2 py-lg-3 text-secondary flex-fill d-lg-none text-decoration-none">
-                        <i class="bi bi-box-arrow-right fs-4"></i>
-                    </a>
+            <!-- Botón hamburguesa para móvil/tablet -->
+            <button class="btn btn-danger rounded-circle position-fixed d-lg-none"
+                style="top: 20px; right: 20px; width: 50px; height: 50px; z-index: 1050;" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebarMenu">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+
+            <!-- Sidebar Desktop -->
+            <div class="col-lg-1 border-end bg-light d-none d-lg-block">
+                <div class="p-1 d-flex flex-column" style="min-height: 100vh;">
+                    <h6 class="mb-4">ANGELA'S<br><strong>CALENDAR</strong></h6>
+
+                    <div class="d-flex flex-column gap-2">
+                        <a href="{{ url_for('homeCliente') }}"
+                            class="d-block text-center py-2 py-lg-2 text-danger flex-fill text-decoration-none">
+                            <i class="bi bi-house fs-6"></i>
+                            <span class="d-block small mt-1">Inicio</span>
+                        </a>
+                        <a href="{{ url_for('citasCliente') }}"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-calendar3 fs-6"></i>
+                            <span class="d-block small mt-1">Citas</span>
+                        </a>
+                        <a href="{{ url_for('notificacionesCliente') }}"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-bell fs-6"></i>
+                            <span class="d-block small mt-1">Notificaciones</span>
+                        </a>
+                        <a href="{{ url_for('usuarioCliente') }}"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                            <i class="bi bi-person fs-6"></i>
+                            <span class="d-block small mt-1">Usuario</span>
+                        </a>
+
+                    </div>
+
+                    <div class="mt-auto pt-4">
+                        <a href="{{ url_for('login') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-box-arrow-right fs-6"></i>
+                            <span class="d-block small mt-1">Salir</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="d-none d-lg-block px-2 pb-3 mt-auto">
-                    <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
-                        <i class="bi bi-box-arrow-right fs-4"></i>
-                        <span class="d-block small mt-1">Salir</span>
-                    </a>
+            </div>
+
+            <!-- Sidebar Móvil/Tablet (Offcanvas) -->
+            <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="sidebarMenu">
+                <div class="offcanvas-header border-bottom">
+                    <h6 class="mb-0  ">ANGELA'S<br><strong>CALENDAR</strong></h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body p-3 d-flex flex-column">
+                    <div class="d-flex flex-column gap-2">
+                        <a href="{{ url_for('homeCliente') }}"
+                            class="d-block text-center py-2 text-danger text-decoration-none">
+                            <i class="bi bi-house fs-6"></i>
+                            <span class="d-block small mt-1">Inicio</span>
+                        </a>
+                        <a href="{{ url_for('citasCliente') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-calendar3 fs-6"></i>
+                            <span class="d-block small mt-1">Citas</span>
+                        </a>
+                        <a href="{{ url_for('notificacionesCliente') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-bell fs-6"></i>
+                            <span class="d-block small mt-1">Notificaciones</span>
+                        </a>
+                        <a href="{{ url_for('usuarioCliente') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-person fs-6"></i>
+                            <span class="d-block small mt-1">Usuario</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-auto">
+                        <a href="{{ url_for('login') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
+                            <i class="bi bi-box-arrow-right fs-6"></i>
+                            <span class="d-block small mt-1">Salir</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 

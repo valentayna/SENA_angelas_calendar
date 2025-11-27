@@ -67,17 +67,18 @@
                     <h6 class="mb-4">ANGELA'S<br><strong>CALENDAR</strong></h6>
 
                     <div class="d-flex flex-column gap-2">
-                        <a href="#" class="d-block text-center py-2 py-lg-2 text-danger flex-fill text-decoration-none">
+                        <a href="{{ url_for('homeAdmin') }}"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
                             <i class="bi bi-house fs-6"></i>
                             <span class="d-block small mt-1">Inicio</span>
                         </a>
-                        <a href="#"
+                        <a href="{{ url_for('serviciosAdmin') }}"
                             class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
                             <i class="bi bi-scissors fs-6"></i>
                             <span class="d-block small mt-1">Servicios</span>
                         </a>
-                        <a href="#"
-                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                        <a href="{{ url_for('horarioAdmin') }}"
+                            class="d-block text-center py-2 py-lg-2 text-danger flex-fill text-decoration-none">
                             <i class="bi bi-clock-history fs-6"></i>
                             <span class="d-block small mt-1">Horario</span>
                         </a>
@@ -94,7 +95,8 @@
                     </div>
 
                     <div class="mt-auto pt-4">
-                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                        <a href="{{ url_for('login') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
                             <i class="bi bi-box-arrow-right fs-6"></i>
                             <span class="d-block small mt-1">Salir</span>
                         </a>
@@ -110,15 +112,18 @@
                 </div>
                 <div class="offcanvas-body p-3 d-flex flex-column">
                     <div class="d-flex flex-column gap-2">
-                        <a href="#" class="d-block text-center py-2 text-danger text-decoration-none">
+                        <a href="{{ url_for('homeAdmin') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
                             <i class="bi bi-house fs-6"></i>
                             <span class="d-block small mt-1">Inicio</span>
                         </a>
-                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                        <a href="{{ url_for('serviciosAdmin') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
                             <i class="bi bi-scissors fs-6"></i>
                             <span class="d-block small mt-1">Servicios</span>
                         </a>
-                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                        <a href="{{ url_for('horarioAdmin') }}"
+                            class="d-block text-center py-2 text-danger text-decoration-none">
                             <i class="bi bi-clock-history fs-6"></i>
                             <span class="d-block small mt-1">Horario</span>
                         </a>
@@ -134,7 +139,8 @@
                     </div>
 
                     <div class="mt-auto">
-                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                        <a href="{{ url_for('login') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
                             <i class="bi bi-box-arrow-right fs-6"></i>
                             <span class="d-block small mt-1">Salir</span>
                         </a>
@@ -142,8 +148,10 @@
                 </div>
             </div>
 
+
+
             <!-- configuración de horarios -->
-            <div class="col-1 col-lg-11 bg-white" style="max-height: 100vh; overflow-y: auto;">
+            <div class="col-12 col-md-12 col-lg-11 bg-white" style="max-height: 100vh; overflow-y: auto;">
                 <!-- Header -->
                 <div class="d-flex justify-content-between align-items-center mb-4" style="height: 10vh">
                     <h2>Horario</h2>
@@ -151,19 +159,26 @@
 
                 <div class="row g-4">
                     <!-- Panel de días de trabajo y calendario -->
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-md-12 col-lg-6">
                         <div class="card shadow-sm h-100">
                             <div class="card-body">
                                 <!-- Días de trabajo -->
                                 <h5 class="fw-bold mb-3">Días de trabajo</h5>
                                 <div class="d-flex flex-wrap gap-2 mb-4">
-                                    <button class="btn btn-outline-primary btn-sm toggle-day">Lun</button>
-                                    <button class="btn btn-outline-primary btn-sm toggle-day">Mar</button>
-                                    <button class="btn btn-outline-primary btn-sm toggle-day">Mié</button>
-                                    <button class="btn btn-outline-primary btn-sm toggle-day">Jue</button>
-                                    <button class="btn btn-outline-primary btn-sm toggle-day">Vie</button>
-                                    <button class="btn btn-outline-primary btn-sm toggle-day">Sáb</button>
-                                    <button class="btn btn-outline-primary btn-sm toggle-day">Dom</button>
+                                    <button
+                                        class="btn btn-outline-primary btn-sm toggle-day flex-md-grow-1">Lun</button>
+                                    <button
+                                        class="btn btn-outline-primary btn-sm toggle-day flex-md-grow-1">Mar</button>
+                                    <button
+                                        class="btn btn-outline-primary btn-sm toggle-day flex-md-grow-1">Mié</button>
+                                    <button
+                                        class="btn btn-outline-primary btn-sm toggle-day flex-md-grow-1">Jue</button>
+                                    <button
+                                        class="btn btn-outline-primary btn-sm toggle-day flex-md-grow-1">Vie</button>
+                                    <button
+                                        class="btn btn-outline-primary btn-sm toggle-day flex-md-grow-1">Sáb</button>
+                                    <button
+                                        class="btn btn-outline-primary btn-sm toggle-day flex-md-grow-1">Dom</button>
                                 </div>
 
                                 <!-- Días libres -->
@@ -198,7 +213,7 @@
                     </div>
 
                     <!-- Panel de horas de trabajo -->
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-md-12 col-lg-6">
                         <div class="card shadow-sm h-100">
                             <div class="card-body" style=" max-height: 60vh; overflow-y: auto;">
                                 <h5 class="fw-bold mb-3">Horas de trabajo</h5>
@@ -206,10 +221,10 @@
                                 <!-- Horario dividido por jornada -->
                                 <div class="hour-block">
                                     <h6>Mañana</h6>
-                                    <div class="d-flex align-items-center gap-2">
+                                    <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-2">
                                         <input type="time" class="form-control form-control-sm" id="mañanaInicio"
                                             value="08:00">
-                                        <span>-</span>
+                                        <span class="d-none d-lg-block">-</span>
                                         <input type="time" class="form-control form-control-sm" id="mañanaFin"
                                             value="12:00">
                                     </div>
@@ -217,10 +232,10 @@
 
                                 <div class="hour-block">
                                     <h6>Tarde</h6>
-                                    <div class="d-flex align-items-center gap-2">
+                                    <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-2">
                                         <input type="time" class="form-control form-control-sm" id="tardeInicio"
                                             value="14:00">
-                                        <span>-</span>
+                                        <span class="d-none d-lg-block">-</span>
                                         <input type="time" class="form-control form-control-sm" id="tardeFin"
                                             value="18:00">
                                     </div>
@@ -229,10 +244,9 @@
                                 <!-- Agregar más rangos -->
                                 <div id="extraHours"></div>
 
-                                <button class="btn btn-outline-primary btn-sm mt-2" id="addRange">
+                                <button class="btn btn-outline-primary btn-sm mt-2 w-100 w-lg-auto" id="addRange">
                                     <i class="bi bi-plus-circle me-1"></i>Agregar otro rango
                                 </button>
-
 
                             </div>
                             <!-- Guardar -->
@@ -249,6 +263,7 @@
                     </div>
                 </div>
             </div>
+
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
             <script>

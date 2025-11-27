@@ -246,5 +246,54 @@ def register():
     # Si es GET, solo devuelve el formulario (si existe)
     return render_template('register.html', mensaje=mensaje)
 
+
+
+#-------------------------------------#
+# Rutas Cliente
+@app.route('/cliente/agenda')
+def agendarCliente():
+    return render_template('agendarCliente.html')
+
+@app.route('/cliente/citas')
+def citasCliente():
+    return render_template('citasCliente.html')
+
+@app.route('/cliente/editar-usuario')
+def editar_usuarioCliente():
+    return render_template('editar_usuarioCliente.html')
+
+
+@app.route('/cliente/notificaciones')
+def notificacionesCliente():
+    return render_template('notificacionesCliente.html')
+
+@app.route('/cliente/modificar')
+def modificarCliente():
+    return render_template('modificarCliente.html')
+
+@app.route('/cliente/usuario')
+def usuarioCliente():
+    return render_template('usuarioCliente.html')
+
+# Rutas Admin
+
+@app.route('/admin/horarios')
+def horarioAdmin():
+    return render_template('horarioAdmin.html')
+
+@app.route('/admin/modificar-citas')
+def modificarCitasAdmin():
+    return render_template('modificarCitasAdmin.html')
+
+@app.route('/admin/servicios')
+def serviciosAdmin():
+    return render_template('serviciosAdmin.html')
+
+@app.route('/admin/nuevo-servicio')
+def nuevoServicioAdmin():
+    return render_template('nuevoServicioAdmin.html')
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)    # ejecutar la aplicación en modo depuración

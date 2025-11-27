@@ -26,16 +26,17 @@
                     <h6 class="mb-4">ANGELA'S<br><strong>CALENDAR</strong></h6>
 
                     <div class="d-flex flex-column gap-2">
-                        <a href="#" class="d-block text-center py-2 py-lg-2 text-danger flex-fill text-decoration-none">
+                        <a href="{{ url_for('homeAdmin') }}"
+                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
                             <i class="bi bi-house fs-6"></i>
                             <span class="d-block small mt-1">Inicio</span>
                         </a>
-                        <a href="#"
-                            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+                        <a href="{{ url_for('serviciosAdmin') }}"
+                            class="d-block text-center py-2 py-lg-2 text-danger flex-fill text-decoration-none">
                             <i class="bi bi-scissors fs-6"></i>
                             <span class="d-block small mt-1">Servicios</span>
                         </a>
-                        <a href="#"
+                        <a href="{{ url_for('horarioAdmin') }}"
                             class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
                             <i class="bi bi-clock-history fs-6"></i>
                             <span class="d-block small mt-1">Horario</span>
@@ -53,7 +54,8 @@
                     </div>
 
                     <div class="mt-auto pt-4">
-                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                        <a href="{{ url_for('login') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
                             <i class="bi bi-box-arrow-right fs-6"></i>
                             <span class="d-block small mt-1">Salir</span>
                         </a>
@@ -69,15 +71,18 @@
                 </div>
                 <div class="offcanvas-body p-3 d-flex flex-column">
                     <div class="d-flex flex-column gap-2">
-                        <a href="#" class="d-block text-center py-2 text-danger text-decoration-none">
+                        <a href="{{ url_for('homeAdmin') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
                             <i class="bi bi-house fs-6"></i>
                             <span class="d-block small mt-1">Inicio</span>
                         </a>
-                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                        <a href="{{ url_for('serviciosAdmin') }}"
+                            class="d-block text-center py-2 text-danger text-decoration-none">
                             <i class="bi bi-scissors fs-6"></i>
                             <span class="d-block small mt-1">Servicios</span>
                         </a>
-                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                        <a href="{{ url_for('horarioAdmin') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
                             <i class="bi bi-clock-history fs-6"></i>
                             <span class="d-block small mt-1">Horario</span>
                         </a>
@@ -93,13 +98,15 @@
                     </div>
 
                     <div class="mt-auto">
-                        <a href="#" class="d-block text-center py-2 text-secondary text-decoration-none">
+                        <a href="{{ url_for('login') }}"
+                            class="d-block text-center py-2 text-secondary text-decoration-none">
                             <i class="bi bi-box-arrow-right fs-6"></i>
                             <span class="d-block small mt-1">Salir</span>
                         </a>
                     </div>
                 </div>
             </div>
+
 
             <!-- Panel Principal -->
             <div class="col-12 col-lg-11 bg-white" style="max-height: 100vh; overflow-y: auto;">

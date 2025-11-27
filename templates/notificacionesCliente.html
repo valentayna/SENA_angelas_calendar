@@ -1,84 +1,155 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tus Notificaciones</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../static/css/stylesCliente.css">
-  </head>
-  <body class="app-bg">
-    <div class="d-flex vh-100 overflow-hidden">
-        <aside class="sidebar d-none d-lg-flex flex-column align-items-start p-4">
-            <div class="brand-small">ANGELA'S <br><span class="brand mb-4">CALENDAR</span></div>
-            <nav class="nav flex-column w-100" style="padding-top: 100px;">
-                <a class="nav-link" href="homeCliente.html"> <i class="bi bi-house-door-fill"></i> Inicio</a>
-                <a class="nav-link" href="citasCliente.html"> <i class="bi bi-calendar"></i> Citas</a>
-                <a class="nav-link text-danger" href="notificacionesCliente.html"> <i class="bi bi-chat-right-dots-fill"></i> Notificación</a>
-                <a class="nav-link" href="usuarioCliente.html"> <i class="bi bi-person-fill"></i> Usuario</a>
-            </nav>
-            <div class="mt-auto w-100">
-                <a class="nav-link text-muted" href="#"> <i class="bi bi-door-open-fill"></i> Salir</a>
-            </div>
-        </aside>
 
-      <main class="flex-fill overflow-auto p-4">
-        <div class="container-fluid">
-          <div class="row mb-3">
-            <div class="col-12 d-flex align-items-center justify-content-between">
-              <div class="d-flex align-items-center gap-3">
-                <button class="btn btn-link d-lg-none p-0 fs-3"><i class="bi bi-list"></i></button>
-                <h2 class="m-0 title">Tus notificaciones</h2>
-              </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tus Notificaciones</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/stylesCliente.css">
+</head>
+
+<body class="app-bg">
+  <div class="d-flex vh-100 overflow-hidden">
+    <button class="btn btn-danger rounded-circle position-fixed d-lg-none"
+      style="top: 20px; right: 20px; width: 50px; height: 50px; z-index: 1050;" data-bs-toggle="offcanvas"
+      data-bs-target="#sidebarMenu">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+
+    <!-- Sidebar Desktop -->
+    <div class="col-lg-1 border-end bg-light d-none d-lg-block">
+      <div class="p-1 d-flex flex-column" style="min-height: 100vh;">
+        <h6 class="mb-4">ANGELA'S<br><strong>CALENDAR</strong></h6>
+
+        <div class="d-flex flex-column gap-2">
+          <a href="{{ url_for('homeCliente') }}"
+            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+            <i class="bi bi-house fs-6"></i>
+            <span class="d-block small mt-1">Inicio</span>
+          </a>
+          <a href="{{ url_for('citasCliente') }}"
+            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+            <i class="bi bi-calendar3 fs-6"></i>
+            <span class="d-block small mt-1">Citas</span>
+          </a>
+          <a href="{{ url_for('notificacionesCliente') }}"
+            class="d-block text-center py-2 py-lg-2 text-danger flex-fill text-decoration-none">
+            <i class="bi bi-bell fs-6"></i>
+            <span class="d-block small mt-1">Notificaciones</span>
+          </a>
+          <a href="{{ url_for('usuarioCliente') }}"
+            class="d-block text-center py-2 py-lg-2 text-secondary flex-fill text-decoration-none">
+            <i class="bi bi-person fs-6"></i>
+            <span class="d-block small mt-1">Usuario</span>
+          </a>
+
+        </div>
+
+        <div class="mt-auto pt-4">
+          <a href="{{ url_for('login') }}" class="d-block text-center py-2 text-secondary text-decoration-none">
+            <i class="bi bi-box-arrow-right fs-6"></i>
+            <span class="d-block small mt-1">Salir</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Móvil/Tablet (Offcanvas) -->
+    <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="sidebarMenu">
+      <div class="offcanvas-header border-bottom">
+        <h6 class="mb-0  ">ANGELA'S<br><strong>CALENDAR</strong></h6>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body p-3 d-flex flex-column">
+        <div class="d-flex flex-column gap-2">
+          <a href="{{ url_for('homeCliente') }}" class="d-block text-center py-2 text-secondary text-decoration-none">
+            <i class="bi bi-house fs-6"></i>
+            <span class="d-block small mt-1">Inicio</span>
+          </a>
+          <a href="{{ url_for('citasCliente') }}" class="d-block text-center py-2 text-secondary text-decoration-none">
+            <i class="bi bi-calendar3 fs-6"></i>
+            <span class="d-block small mt-1">Citas</span>
+          </a>
+          <a href="{{ url_for('notificacionesCliente') }}"
+            class="d-block text-center py-2 text-danger text-decoration-none">
+            <i class="bi bi-bell fs-6"></i>
+            <span class="d-block small mt-1">Notificaciones</span>
+          </a>
+          <a href="{{ url_for('usuarioCliente') }}"
+            class="d-block text-center py-2 text-secondary text-decoration-none">
+            <i class="bi bi-person fs-6"></i>
+            <span class="d-block small mt-1">Usuario</span>
+          </a>
+        </div>
+
+        <div class="mt-auto">
+          <a href="{{ url_for('login') }}" class="d-block text-center py-2 text-secondary text-decoration-none">
+            <i class="bi bi-box-arrow-right fs-6"></i>
+            <span class="d-block small mt-1">Salir</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <main class="flex-fill overflow-auto p-4">
+      <div class="container-fluid">
+        <div class="row mb-3">
+          <div class="col-12 d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-3">
+              <button class="btn btn-link d-lg-none p-0 fs-3"><i class="bi bi-list"></i></button>
+              <h2 class="m-0 title">Tus notificaciones</h2>
             </div>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="col-lg-10">
-              <div class="white-panel p-4 rounded-4">
-                <button class="btn btn-teal mb-4">Vaciar buzón</button>
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="white-panel p-4 rounded-4">
+              <button class="btn btn-teal mb-4">Vaciar buzón</button>
 
-                <div class="notifications-list">
-                  <div class="notif-item d-flex align-items-center justify-content-between mb-3 p-3">
-                    <div>
-                      <div class="notif-date small text-muted">18/07/2025 - 08:00</div>
-                      <div class="notif-text">Tienes una cita mañana</div>
-                    </div>
-                    <div class="notif-close">x</div>
+              <div class="notifications-list">
+                <div class="notif-item d-flex align-items-center justify-content-between mb-3 p-3">
+                  <div>
+                    <div class="notif-date small text-muted">18/07/2025 - 08:00</div>
+                    <div class="notif-text">Tienes una cita mañana</div>
                   </div>
+                  <div class="notif-close">x</div>
+                </div>
 
-                  <div class="notif-item d-flex align-items-center justify-content-between mb-3 p-3">
-                    <div>
-                      <div class="notif-date small text-muted">08/07/2025 - 23:10</div>
-                      <div class="notif-text">Haz eliminado una cita</div>
-                    </div>
-                    <div class="notif-close">x</div>
+                <div class="notif-item d-flex align-items-center justify-content-between mb-3 p-3">
+                  <div>
+                    <div class="notif-date small text-muted">08/07/2025 - 23:10</div>
+                    <div class="notif-text">Haz eliminado una cita</div>
                   </div>
+                  <div class="notif-close">x</div>
+                </div>
 
-                  <div class="notif-item d-flex align-items-center justify-content-between mb-3 p-3">
-                    <div>
-                      <div class="notif-date small text-muted">08/07/2025 - 09:00</div>
-                      <div class="notif-text">Haz modificado una cita</div>
-                    </div>
-                    <div class="notif-close">x</div>
+                <div class="notif-item d-flex align-items-center justify-content-between mb-3 p-3">
+                  <div>
+                    <div class="notif-date small text-muted">08/07/2025 - 09:00</div>
+                    <div class="notif-text">Haz modificado una cita</div>
                   </div>
+                  <div class="notif-close">x</div>
+                </div>
 
-                  <div class="notif-item d-flex align-items-center justify-content-between mb-3 p-3">
-                    <div>
-                      <div class="notif-date small text-muted">05/07/2025 - 16:30</div>
-                      <div class="notif-text">Haz agendado una cita</div>
-                    </div>
-                    <div class="notif-close">x</div>
+                <div class="notif-item d-flex align-items-center justify-content-between mb-3 p-3">
+                  <div>
+                    <div class="notif-date small text-muted">05/07/2025 - 16:30</div>
+                    <div class="notif-text">Haz agendado una cita</div>
                   </div>
+                  <div class="notif-close">x</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
